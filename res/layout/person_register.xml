@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.job.view.BackLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    />
+    
+    <EditText
+        android:id="@+id/password1"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:hint="@string/et_password_hint"
+        android:background="@drawable/register_phone_bg"/>
+    <TextView 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/gray_font"
+        android:textSize="16sp"
+        android:text="@string/tv_tips_password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"/>
+    
+    <EditText
+        android:id="@+id/name1"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:inputType="text"
+        android:padding="5dp"
+        android:hint="@string/person_name"
+        android:background="@drawable/register_phone_bg"/>
+    
+    <TextView 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/gray_font"
+        android:textSize="16sp"
+        android:text="@string/tv_tips_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"/>
+    
+    <EditText
+        android:id="@+id/email1"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:inputType="text"
+        android:padding="5dp"
+        android:hint="@string/email"
+        
+        android:background="@drawable/register_phone_bg"/>
+    
+    
+    
+    <Button 
+        android:id="@+id/register_complete1"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:background="#009933"
+        android:textSize="18sp"
+        android:textColor="@color/whites"
+        android:text="@string/finish"/>
+
+</LinearLayout>

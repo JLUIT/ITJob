@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.job.view.BackLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    />
+    
+    <EditText
+        android:id="@+id/password2"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:hint="@string/et_password_hint"
+        android:background="@drawable/register_phone_bg"/>
+    
+    
+    <EditText
+        android:id="@+id/name2"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:inputType="text"
+        android:padding="5dp"
+        android:hint="@string/company_name"
+        android:background="@drawable/register_phone_bg"/>
+    
+    
+    
+    <EditText
+        android:id="@+id/email2"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:inputType="text"
+        android:padding="5dp"
+        android:hint="@string/email"
+        
+        android:background="@drawable/register_phone_bg"/>
+    
+    <EditText
+        android:id="@+id/license"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:inputType="text"
+        android:padding="5dp"
+        android:hint="@string/lisense"
+        android:background="@drawable/register_phone_bg"/>
+    
+    <Button 
+        android:id="@+id/register_complete2"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:background="#009933"
+        android:textSize="18sp"
+        android:textColor="@color/whites"
+        android:text="@string/finish"/>
+
+</LinearLayout>

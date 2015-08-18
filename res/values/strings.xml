@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IT职业联盟</string>
+   	<string name="login">登 录</string>
+   	<string name="register">新用户</string>
+   	<string name="registercompany">新公司</string>
+    <string name="message">招聘信息</string>
+    <string name="et_phoneNumber_hint">请输入你的手机号码</string>
+    <string name="forgetpassword">忘记密码?</string>
+    <string name="school">校企天地</string>
+    <string name="tv_country">中国+86</string>
+     <string name="title_phoneNumber">请填写手机号码</string>
+    <string name="btn_next">下一步</string>
+    <string name="tv_xieyi">我已阅读并同意</string>
+    <string name="person_name">请输入你的用户名</string>
+    <string name="company_name">请输入你的公司名</string>
+    <string name="lisense">请输入你的公司执照</string>
+    <string name="finish">完成</string>
+    <string name="email">请填写邮箱</string>
+    <string name="contact">发现</string>
+    <string name="guide">指南</string>
+    <string name="tv_tips_name">建议填写你的真实姓名,让你的朋友更容易人出你,此昵称以后可以随时修改</string>
+    <string name="tv_tips_password">密码由6-16位数字,字母或符号组成,不能是9位一下纯数字组成</string>
+    <string name="setting">设置</string>
+    <string name="person">个人</string>
+    <string name="company">公司</string>
+    <string name="back">返回</string>
+    <string name="et_account_hint">请输入用户名/手机号/邮箱</string>
+     <string name="account_hint">请输入公司名</string>
+    <string name="et_password_hint">请输入密码</string>
+	
+</resources>
