@@ -8,6 +8,7 @@
     <string name="message">招聘信息</string>
     <string name="et_phoneNumber_hint">请输入你的手机号码</string>
     <string name="forgetpassword">忘记密码?</string>
+    <string name="confirm_password">请确认密码</string>
     <string name="school">校企天地</string>
     <string name="tv_country">中国+86</string>
      <string name="title_phoneNumber">请填写手机号码</string>

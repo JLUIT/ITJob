@@ -12,7 +12,7 @@ import com.job.R;
 
 public class RegisterCompanyActivity extends Activity {
 
-	private EditText company_name, email, lisence, password;
+	private EditText company_name, email, lisence;
 	private Button finish_btn;
 	
 	@Override
@@ -28,7 +28,6 @@ public class RegisterCompanyActivity extends Activity {
 		company_name = (EditText) findViewById(R.id.name2);
 		email = (EditText) findViewById(R.id.email2);
 		lisence = (EditText) findViewById(R.id.license);
-		password = (EditText) findViewById(R.id.password2);
 		finish_btn = (Button) findViewById(R.id.register_complete2);
 		finish_btn.setOnClickListener(new OnClickListener() {
 			

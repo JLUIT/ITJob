@@ -42,6 +42,10 @@
             android:name=".activity.RegisterPhoneActivity">
             
         </activity>
+        <activity 
+            android:name=".activity.RegisterPasswordActivity">
+            
+        </activity>
     </application>
 
 </manifest>

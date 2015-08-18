@@ -40,7 +40,7 @@ public class RegisterPhoneActivity extends Activity {
 					Intent i = new Intent(RegisterPhoneActivity.this, RegisterPersonActivity.class);
 					startActivity(i);
 				}else{
-					Intent i = new Intent(RegisterPhoneActivity.this, RegisterCompanyActivity.class);
+					Intent i = new Intent(RegisterPhoneActivity.this, RegisterPasswordActivity.class);
 					startActivity(i);
 				}
 				
