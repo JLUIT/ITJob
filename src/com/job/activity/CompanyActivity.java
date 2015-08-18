@@ -116,17 +116,16 @@ public class CompanyActivity extends Activity implements OnClickListener{
 	
 	private void initMenu() {
 		
-		Menu menu1 = new Menu("简历");
-		Menu menu2 = new Menu("收藏");
-		Menu menu3 = new Menu("咨询");
-		Menu menu4 = new Menu("招聘");
-		Menu menu5 = new Menu("公司");
+		Menu menu1 = new Menu("简历管理");
+		Menu menu2 = new Menu("招聘信息");
+		Menu menu3 = new Menu("我的收藏");
+		Menu menu4 = new Menu("注销");
 		
 		menuList.add(menu1);
 		menuList.add(menu2);
 		menuList.add(menu3);
 		menuList.add(menu4);
-		menuList.add(menu5);
+		
 	}
 
 	private void initDragLayout() {

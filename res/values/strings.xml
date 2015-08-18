@@ -30,5 +30,8 @@
     <string name="et_account_hint">请输入用户名/手机号/邮箱</string>
      <string name="account_hint">请输入公司名</string>
     <string name="et_password_hint">请输入密码</string>
+    <string name="company_style">公司风采</string>
+    <string name="conduct">咨询</string>
+    <string name="file_manage">简历管理</string>
 	
 </resources>

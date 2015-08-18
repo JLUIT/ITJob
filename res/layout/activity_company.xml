@@ -140,7 +140,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/message"
+                        android:text="@string/conduct"
                         android:textColor="#82858b" />
                 </LinearLayout>
             </RelativeLayout>
@@ -227,7 +227,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/guide"
+                        android:text="@string/company_style"
                         android:textColor="#82858b" />
                 </LinearLayout>
             </RelativeLayout>
