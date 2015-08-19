@@ -1,15 +1,27 @@
 package com.job.activity;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
@@ -19,10 +31,13 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.job.R;
+import com.job.activity.LoginActivity.LoginThread;
 import com.job.adapter.LoginPagerAdapter;
 import com.job.util.ImageUtil;
 
@@ -31,7 +46,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 
 	private ViewPager viewPager;
 	private ImageView imageView;
-	
+	private EditText P_username,P_password,E_username,E_password;
 	private TextView textView1,textView2;
 	private List<View> views;
 	private TextView forget_pass1,forget_pass2;
@@ -40,7 +55,10 @@ public class LoginActivity extends Activity implements OnClickListener{
 	private int currIndex = 0;// 当前页卡编号
 	private int bmpW;// 动画图片宽度
 	private View view1,view2;//各个页卡
-	
+	private ProgressDialog mDialog;
+	private String type="";//登录类型 0  个人，1  公司
+	public static String name="";
+	public static String pass="";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -62,6 +80,10 @@ public class LoginActivity extends Activity implements OnClickListener{
 		login_btn2 = (Button) view2.findViewById(R.id.login2);
 		register_btn1 = (Button) view1.findViewById(R.id.register1);
 		register_btn2 = (Button) view2.findViewById(R.id.register2);
+		P_username = (EditText) view1.findViewById(R.id.account1);
+		P_password = (EditText) view1.findViewById(R.id.password1);
+		E_username=(EditText) view2.findViewById(R.id.account2);
+		E_password=(EditText) view2.findViewById(R.id.password2);
 		login_btn1.setOnClickListener(this);
 		login_btn2.setOnClickListener(this);
 		register_btn1.setOnClickListener(this);
@@ -152,14 +174,16 @@ public class LoginActivity extends Activity implements OnClickListener{
     }
 
 	@Override
-	public void onClick(View v) {
+public void onClick(View v) {
 		
 		switch (v.getId()) {
 		case R.id.login1:
-			loginPerson();
+			type="0";
+			Login();
 			break;
 		case R.id.login2:
-			loginCompany();
+			type="1";
+			Login();
 			break;
 		case R.id.register1:
 			registerPerson();
@@ -178,6 +202,125 @@ public class LoginActivity extends Activity implements OnClickListener{
 		}
 		
 	}
+	
+	Handler handler = new Handler()  
+    {  
+        public void handleMessage(Message msg)  
+        {  
+            switch(msg.what)  
+            {  
+            case 0:  
+                mDialog.cancel();  
+                Toast.makeText(getApplicationContext(), "登录成功！", Toast.LENGTH_SHORT).show();  
+                if(type.equals("0"))
+                {
+                	Intent intent = new Intent(LoginActivity.this,PersonActivity.class);
+                	startActivity(intent);
+                }
+                else
+                {
+                	Intent intent = new Intent(LoginActivity.this,CompanyActivity.class);
+                	startActivity(intent);
+                }
+    			finish();
+    			overridePendingTransition(R.anim.fade_in, R.anim.fade_out); 
+                break;  
+            case 1:  
+                mDialog.cancel();  
+                Toast.makeText(getApplicationContext(), "登录失败", Toast.LENGTH_SHORT).show();  
+                break;  
+            case 2:
+            	mDialog.cancel();
+            	Toast.makeText(getApplicationContext(), "用户名，密码或登录类型不能为空",Toast.LENGTH_SHORT).show();
+            	break;
+            }  
+              
+        }  
+    }; 
+    
+    public class LoginThread implements Runnable  
+    {  
+  
+        @Override  
+        public void run() { 
+        	if(type.equals("0"))
+        	{
+        		name = P_username.getText().toString().trim();  
+        		pass = P_password.getText().toString().trim();  
+        	}
+        	else
+        	{
+        		name = E_username.getText().toString().trim();  
+        		pass = E_password.getText().toString().trim();  
+        	}
+            Message msg = handler.obtainMessage();
+            if(name.equals("")||pass.equals(""))
+            {
+            	msg.what=2;
+            	handler.sendMessage(msg);
+            }
+            else{
+		            boolean result=loginServer(name,pass);  
+		            if(result)  
+		            {   
+		                    msg.what = 0;  
+		                    handler.sendMessage(msg);  
+		            }else  
+		            {  
+		                msg.what = 1;  
+		                handler.sendMessage(msg);  
+		            }  
+                }
+        }  
+          
+    }  
+	
+	 private boolean loginServer(String username, String password)  
+	    {  
+		 String path="http://49.140.60.236:8080/IT/Login";  
+	        //将用户名和密码放入HashMap中  
+	        Map<String,String> params=new HashMap<String,String>();  
+	        params.put("userName", username);  
+	        params.put("passWord", password);
+	        params.put("type",type);
+	        try {  
+	            return sendGETRequest(path,params,"UTF-8");  
+	        } catch (MalformedURLException e) {  
+	            // TODO Auto-generated catch block  
+	            e.printStackTrace();  
+	        } catch (IOException e) {  
+	            // TODO Auto-generated catch block  
+	            e.printStackTrace();  
+	        }  
+	        return false;  
+	    }  
+	    private static boolean sendGETRequest(String path,Map<String,String> params,String encode) throws MalformedURLException, IOException {  
+	        StringBuilder url=new StringBuilder(path);  
+	        url.append("?");  
+	        for(Map.Entry<String, String> entry:params.entrySet())  
+	        {  
+	            url.append(entry.getKey()).append("=");  
+	            url.append(URLEncoder.encode(entry.getValue(),encode));  
+	            url.append("&");  
+	        }  
+	      //删掉最后一个&   
+	        url.deleteCharAt(url.length()-1);
+	        String str=url.toString();
+	        HttpURLConnection conn=(HttpURLConnection)new URL(str).openConnection();  
+	        conn.setConnectTimeout(5000);  
+	        conn.setRequestMethod("GET");  
+	        int code=conn.getResponseCode();
+	        if(code==200)  
+           {  
+	        	BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	        	String result=rd.readLine();
+	        	rd.close();
+	        	if(result.equals("success"))
+	        		return true; 
+	        	else return false;
+	         }  
+	        else  return false;  
+	    }
 
 	private void forget_company() {
 				
@@ -200,33 +343,17 @@ public class LoginActivity extends Activity implements OnClickListener{
 		
 		Intent intent = new Intent(this, RegisterPhoneActivity.class);  
 		intent.putExtra("register_type", "person");
-		
 		startActivity(intent);
 	}
 
-	private void loginCompany() {
-		
-		
+	private void Login() {
+	
+		mDialog = new ProgressDialog(LoginActivity.this);  
+        mDialog.setTitle("登陆");  
+        mDialog.setMessage("正在登陆，请稍后...");  
+        mDialog.show();  
+        Thread loginThread = new Thread(new LoginThread());
+        loginThread.start();
 		
 	}
-
-	private void loginPerson() {
-	
-		if(loginCheckPerson()){
-			Intent intent = new Intent(this,PersonActivity.class);
-			startActivity(intent);
-			finish();
-			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-		}
-		
-	}
-
-	//验证用户登录是否正确的方法
-	private boolean loginCheckPerson() {
-		
-		return false;
-	}
-	
-	
-
 }
