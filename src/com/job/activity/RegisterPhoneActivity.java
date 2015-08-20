@@ -1,6 +1,5 @@
 package com.job.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,9 +22,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-import com.job.R;
 
-public class RegisterPhoneActivity extends Activity {
+import com.job.R;
+import com.job.base.BaseActivity;
+
+public class RegisterPhoneActivity extends BaseActivity {
 
 	private EditText phone;
 	private Button next_btn;

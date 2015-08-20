@@ -1,6 +1,6 @@
 package com.job.activity;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,9 +21,11 @@ import java.net.URL;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.job.R;
 
-public class RegisterPersonActivity extends Activity {
+import com.job.R;
+import com.job.base.BaseActivity;
+
+public class RegisterPersonActivity extends BaseActivity {
 
 	private EditText username,email,password,D_password;
 	private Button finish_btn;

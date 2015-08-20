@@ -2,7 +2,6 @@ package com.job.activity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -13,10 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
@@ -25,26 +25,32 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.job.R;
-import com.job.activity.LoginActivity.LoginThread;
 import com.job.adapter.LoginPagerAdapter;
-import com.job.util.ImageUtil;
+import com.job.base.BaseActivity;
 
 
-public class LoginActivity extends Activity implements OnClickListener{
+public class LoginActivity extends BaseActivity implements OnClickListener{
 
+	public static final String TAG = "LoginActivity";
+	private SharedPreferences sp;
 	private ViewPager viewPager;
+	private CheckBox remember_password1,remember_password2;
 	private ImageView imageView;
 	private EditText P_username,P_password,E_username,E_password;
 	private TextView textView1,textView2;
@@ -59,12 +65,13 @@ public class LoginActivity extends Activity implements OnClickListener{
 	private String type="";//登录类型 0  个人，1  公司
 	public static String name="";
 	public static String pass="";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+		sp = getSharedPreferences("login", Context.MODE_PRIVATE);
 		
 		initImageView();
 		initTextView();
@@ -84,12 +91,64 @@ public class LoginActivity extends Activity implements OnClickListener{
 		P_password = (EditText) view1.findViewById(R.id.password1);
 		E_username=(EditText) view2.findViewById(R.id.account2);
 		E_password=(EditText) view2.findViewById(R.id.password2);
+		remember_password1 = (CheckBox) view1.findViewById(R.id.remember_password);
+		remember_password2 = (CheckBox) view2.findViewById(R.id.remember_password);
 		login_btn1.setOnClickListener(this);
 		login_btn2.setOnClickListener(this);
 		register_btn1.setOnClickListener(this);
 		register_btn2.setOnClickListener(this);
 		forget_pass1.setOnClickListener(this);
 		forget_pass2.setOnClickListener(this);
+		
+		if(sp.getBoolean("ISCHECK1", false)){
+			
+			remember_password1.setChecked(true);
+			P_username.setText(sp.getString("USER_NAME", ""));
+			P_password.setText(sp.getString("USER_PASSWORD", ""));
+			
+		}
+		
+		if(sp.getBoolean("ISCHECK2", false)){
+			
+			remember_password2.setChecked(true);
+			E_username.setText(sp.getString("COMPANY_NAME", ""));
+			E_password.setText(sp.getString("COMPANY_PASSWORD", ""));
+			
+		}
+		
+		//监听记住密码个人登陆的单选框
+		remember_password1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				
+				if(remember_password1.isChecked()){
+					
+					sp.edit().putBoolean("ISCHECK1", true).commit();
+				
+				}else{
+					sp.edit().putBoolean("ISCHECK1", false).commit();
+				}
+				
+			}
+		});
+		
+		//监听记住密码公司登陆的单选框
+		remember_password2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				
+				if(remember_password2.isChecked()){
+					
+					sp.edit().putBoolean("ISCHECK2", true).commit();
+				
+				}else{
+					sp.edit().putBoolean("ISCHECK2", false).commit();
+				}
+				
+			}
+		});
 	}
 
 	private void initImageView() {
@@ -115,7 +174,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 		
 		views.add(view1);
 		views.add(view2);
-		
+
 		viewPager.setAdapter(new LoginPagerAdapter(views));
 		viewPager.setCurrentItem(0);
 		viewPager.setOnPageChangeListener(new MyOnPageChangeListener());
@@ -174,35 +233,62 @@ public class LoginActivity extends Activity implements OnClickListener{
     }
 
 	@Override
-public void onClick(View v) {
+	public void onClick(View v) {
+			
+			switch (v.getId()) {
+			case R.id.login1:
+				type="0";
+				rememeber();
+				Login();
+				break;
+			case R.id.login2:
+				type="1";
+				rememeber();
+				Login();
+				break;
+			case R.id.register1:
+				registerPerson();
+				break;
+			case R.id.register2:
+				registerCompany();
+				break;
+			case R.id.tv_forget_password1:
+				forget_person();
+				break;
+			case R.id.tv_forget_password2:
+				forget_company();
+				break;
+			default:
+				break;
+			}
+			
+		}
+	
+	private void rememeber() {
 		
-		switch (v.getId()) {
-		case R.id.login1:
-			type="0";
-			Login();
-			break;
-		case R.id.login2:
-			type="1";
-			Login();
-			break;
-		case R.id.register1:
-			registerPerson();
-			break;
-		case R.id.register2:
-			registerCompany();
-			break;
-		case R.id.tv_forget_password1:
-			forget_person();
-			break;
-		case R.id.tv_forget_password2:
-			forget_company();
-			break;
-		default:
-			break;
+		if(remember_password1.isChecked()){
+			
+			//记住用户名和密码
+			String name = P_username.getText().toString().trim();
+			String password = P_password.getText().toString().trim();
+			Editor editor = sp.edit();
+			editor.putString("USER_NAME", name);
+			editor.putString("USER_PASSWORD", password);
+			editor.commit();
 		}
 		
+		if(remember_password2.isChecked()){
+			
+			//记住公司名和密码
+			String name = E_username.getText().toString().trim();
+			String password = E_password.getText().toString().trim();
+			Editor editor = sp.edit();
+			editor.putString("COMPANY_NAME", name);
+			editor.putString("COMPANY_PASSWORD", password);
+			editor.commit();
+		}
 	}
-	
+
 	Handler handler = new Handler()  
     {  
         public void handleMessage(Message msg)  
@@ -347,7 +433,7 @@ public void onClick(View v) {
 	}
 
 	private void Login() {
-	
+		
 		mDialog = new ProgressDialog(LoginActivity.this);  
         mDialog.setTitle("登陆");  
         mDialog.setMessage("正在登陆，请稍后...");  

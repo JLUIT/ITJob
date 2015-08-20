@@ -1,14 +1,15 @@
 package com.job.activity;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.job.R;
+import com.job.base.BaseActivity;
 
 
-public class StartActivity extends Activity {
+public class StartActivity extends BaseActivity {
 
 	private static final int FAILURE = 0; // Ê§°Ü 
     private static final int SUCCESS = 1; // ³É¹¦ 

@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">IT职业联盟</string>
+    <string name="remember_password">记住密码</string>
    	<string name="login">登 录</string>
    	<string name="register">新用户</string>
    	<string name="registercompany">新公司</string>

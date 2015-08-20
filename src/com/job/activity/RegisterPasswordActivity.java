@@ -1,6 +1,6 @@
 package com.job.activity;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import com.job.R;
+import com.job.base.BaseActivity;
 
-public class RegisterPasswordActivity extends Activity {
+public class RegisterPasswordActivity extends BaseActivity {
 
 	private Button next_btn;
 	private EditText password,confirm;

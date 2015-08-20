@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
@@ -15,13 +14,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.job.R;
 import com.job.adapter.MenuAdapter;
+import com.job.base.BaseActivity;
 import com.job.bean.Menu;
 import com.job.fragment.ContactFragment;
 import com.job.fragment.GuideFragment;
@@ -32,7 +33,7 @@ import com.job.view.DragLayout;
 import com.job.view.DragLayout.DragListener;
 import com.nineoldandroids.view.ViewHelper;
 
-public class CompanyActivity extends Activity implements OnClickListener{
+public class CompanyActivity extends BaseActivity implements OnClickListener{
 
 	private DragLayout dl; 
 	private ListView lv;
@@ -101,8 +102,41 @@ public class CompanyActivity extends Activity implements OnClickListener{
 		
 		lv = (ListView) findViewById(R.id.lv);
 		initMenu();
-		MenuAdapter adapter = new MenuAdapter(CompanyActivity.this, R.layout.item_menu, menuList);
+		MenuAdapter adapter = new MenuAdapter(CompanyActivity.this, R.layout.item_company, menuList);
 		lv.setAdapter(adapter);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				
+				//简历管理
+				if(position == 0){
+					
+				}
+				
+				//招聘信息
+				if(position == 1){
+					
+				}
+				
+				//我的收藏
+				if(position == 2){
+					
+				}
+				
+				//退出应用
+				if(position == 3){
+					
+				}
+				
+				//注销
+				if(position == 4){
+					
+				}
+			}
+			
+		});
 		iv_icon.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) { 
@@ -119,12 +153,14 @@ public class CompanyActivity extends Activity implements OnClickListener{
 		Menu menu1 = new Menu("简历管理");
 		Menu menu2 = new Menu("招聘信息");
 		Menu menu3 = new Menu("我的收藏");
-		Menu menu4 = new Menu("注销");
+		Menu menu4 = new Menu("退出应用");
+		Menu menu5 = new Menu("注销");
 		
 		menuList.add(menu1);
 		menuList.add(menu2);
 		menuList.add(menu3);
 		menuList.add(menu4);
+		menuList.add(menu5);
 		
 	}
 

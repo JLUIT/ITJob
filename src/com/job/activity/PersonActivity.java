@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
@@ -22,6 +21,7 @@ import android.widget.TextView;
 
 import com.job.R;
 import com.job.adapter.MenuAdapter;
+import com.job.base.BaseActivity;
 import com.job.bean.Menu;
 import com.job.fragment.ContactFragment;
 import com.job.fragment.GuideFragment;
@@ -32,7 +32,7 @@ import com.job.view.DragLayout;
 import com.job.view.DragLayout.DragListener;
 import com.nineoldandroids.view.ViewHelper;
 
-public class PersonActivity extends Activity implements OnClickListener{
+public class PersonActivity extends BaseActivity implements OnClickListener{
 
 	private DragLayout dl; 
 	private ListView lv;
