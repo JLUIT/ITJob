@@ -27,7 +27,13 @@
         </activity>
         
          <activity 
-            android:name=".activity.CompanyActivity"></activity >
+            android:name=".activity.CompanyMessageActivity">
+             
+         </activity >
+         <activity 
+            android:name=".activity.CompanyActivity">
+             
+         </activity >
         <activity 
             android:name=".activity.LoginActivity">   
         </activity>
@@ -48,11 +54,19 @@
             android:name=".activity.RegisterPasswordActivity">
             
         </activity>
-        
         <activity 
-            android:name=".activity.CompanyMessageActivity">
+            android:name=".activity.CompanyBindEmailActivity">
             
         </activity>
+        <activity 
+            android:name=".activity.CompanyBindPhoneActivity">
+            
+        </activity>
+        <activity 
+            android:name=".activity.CompanyChangePassWordActivity">
+            
+        </activity>
+        
     </application>
 
 </manifest>

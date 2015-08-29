@@ -7,9 +7,19 @@
 	<com.job.view.BackLayout
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    />
-	
-	 <LinearLayout
+	    >
+	    <TextView 
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+	        android:text="@string/change_phoneNumber"
+	        android:textSize="20sp"
+	        android:layout_centerInParent="true"
+	        android:textColor="@color/whites" 
+	        />
+	</com.job.view.BackLayout>
+  	
+	<LinearLayout
         android:id="@+id/ll_phone"
         android:layout_height="50dp"
         android:layout_width="match_parent"
@@ -40,35 +50,15 @@
             android:padding="5dp"/>
     </LinearLayout>
     
-    <Button 
-        android:id="@+id/btn_next"
+	<Button 
+        android:id="@+id/btn_finish"
         android:layout_height="50dp"
         android:layout_width="match_parent"
         android:layout_margin="20dp"
-        android:text="@string/btn_next"
+        android:text="@string/finish"
         android:textSize="18sp"
-        android:background="@drawable/acm_inputbox"/>
-    <LinearLayout 
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_margin="20dp"
-        android:orientation="horizontal">
-        <CheckBox 
-            android:id="@+id/ck_agreen"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:background="@drawable/checkbox"
-            android:button="@null"
-            android:checked="true"/>
-        <TextView 
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/tv_xieyi"
-            android:layout_marginLeft="5dp"
-            android:textSize="16sp"/>
-        
-    </LinearLayout>
-    
-    
+        android:textColor="@color/whites"
+        android:background="#009933"/>
+	
+	
 </LinearLayout>

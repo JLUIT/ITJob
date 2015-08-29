@@ -68,7 +68,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		sp = getSharedPreferences("login", Context.MODE_PRIVATE);

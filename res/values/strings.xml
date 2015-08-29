@@ -10,10 +10,13 @@
     <string name="et_phoneNumber_hint">请输入你的手机号码</string>
     <string name="forgetpassword">忘记密码?</string>
     <string name="confirm_password">请确认密码</string>
+    <string name="check_confirm_password">请重新确认密码</string>
     <string name="school">校企天地</string>
     <string name="tv_country">中国+86</string>
-     <string name="title_phoneNumber">请填写手机号码</string>
+    <string name="title_phoneNumber">请填写手机号码</string>
+    <string name="change_phoneNumber">换绑手机号码</string>
     <string name="btn_next">下一步</string>
+    <string name="change_email">换绑邮箱</string>
     <string name="tv_xieyi">我已阅读并同意</string>
     <string name="person_name">请输入你的用户名</string>
     <string name="company_name">请输入你的公司名</string>
@@ -33,15 +36,22 @@
     <string name="et_account_hint">请输入用户名/手机号/邮箱</string>
      <string name="account_hint">请输入公司名</string>
     <string name="et_password_hint">请输入密码</string>
+    <string name="change_password">修改密码</string>
+    <string name="pchange_password">请修改您的密码:</string>
     <string name="company_style">公司风采</string>
     <string name="conduct">咨询</string>
     <string name="file_manage">简历管理</string>
     <string name="conbine_email">绑定邮箱</string>
+    <string name="input_email">请输入邮箱</string>
     <string name="conbine_phone">绑定手机</string>
-    <string name="edit_password">设置密码</string>
+    <string name="edit_password">修改密码</string>
+    <string name="input_old_pwd">请输入原密码</string>
+    <string name="input_new_pwd">请输入新密码</string>
     <string name="message_center">消息中心</string>
     <string name="conduct_record">咨询记录</string>
     <string name="about_company">关于公司</string>
     <string name="combine">已绑定</string>
-	
+	<string name="dcn_register_password_digits">
+      (6-16位，数字、字母)
+    </string>
 </resources>

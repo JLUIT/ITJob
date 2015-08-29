@@ -99,6 +99,13 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 		InputStream in = getResources().openRawResource(R.drawable.profile);  
 		Bitmap bp = ImageUtil.getRoundBitmap(BitmapFactory.decodeStream(in));
 		iv_bottom.setImageBitmap(bp);
+		iv_bottom.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				intent2Activity(CompanyMessageActivity.class);
+			}
+		});
 		
 		lv = (ListView) findViewById(R.id.lv);
 		initMenu();

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.job.view.BackLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="5dp"
+	    >
+	    <TextView 
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+	        android:text="@string/change_email"
+	        android:textSize="20sp"
+	        android:layout_centerInParent="true"
+	        android:textColor="@color/whites" 
+	        />
+	</com.job.view.BackLayout>
+  	
+	<LinearLayout
+        android:id="@+id/ll_phone"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        android:background="@drawable/register_phone_bg">
+        
+        <EditText 
+            android:id="@+id/et_email"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:hint="@string/input_email"
+            android:background="@android:color/white"
+            android:inputType="phone"
+            android:padding="5dp"/>
+    </LinearLayout>
+    
+	<Button 
+        android:id="@+id/btn_finish"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:text="@string/finish"
+        android:textSize="18sp"
+        android:textColor="@color/whites"
+        android:background="#009933"/>
+
+</LinearLayout>

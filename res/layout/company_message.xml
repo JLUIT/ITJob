@@ -15,7 +15,7 @@
 	        android:text="@string/company_center"
 	        android:textSize="20sp"
 	        android:layout_centerInParent="true"
-	        android:textColor="@color/whites"
+	        android:textColor="@color/whites" 
 	        />
 	</com.job.view.BackLayout>
 	
@@ -45,14 +45,14 @@
                 android:orientation="vertical">
                 
 		      	
-				    <TextView
-				        android:id="@+id/comapny_name"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:singleLine="true"
-				        android:text="Tencent"
-				        android:textColor="@color/yellow"
-				        android:textSize="20sp" />
+	     <TextView
+		        android:id="@+id/comapny_name"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:singleLine="true"
+		        android:text="Tencent"
+		        android:textColor="@color/yellow"
+		        android:textSize="20sp" />
 		
 		      
 		  </LinearLayout>
@@ -85,7 +85,7 @@
                 android:layout_marginRight="10dp">
 
                 <RelativeLayout
-                    android:id="@+id/dcn_ucenter_trading_record"
+                    android:id="@+id/message_center"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
@@ -120,7 +120,7 @@
                     android:background="@color/dcn_color_login_box_gb" />
 
                 <RelativeLayout
-                    android:id="@+id/dcn_ucenter_message_center"
+                    android:id="@+id/conduct_record"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
@@ -137,8 +137,6 @@
                         android:gravity="center_vertical"
                         android:text="@string/conduct_record" />
 
-                    
-
                     <ImageView
                         android:id="@+id/dcn_right_arrow_image2"
                         android:layout_width="wrap_content"
@@ -147,6 +145,7 @@
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp" />
+                    
                 </RelativeLayout>
             </LinearLayout>
 
@@ -162,7 +161,7 @@
                 android:layout_marginBottom="20dp">
 
                 <RelativeLayout
-                    android:id="@+id/dcn_ucenter_change_password"
+                    android:id="@+id/change_password"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
@@ -195,7 +194,7 @@
                     android:background="@color/dcn_color_login_box_gb" />
 
                 <RelativeLayout
-                    android:id="@+id/dcn_ucenter_binding_phone_number"
+                    android:id="@+id/binding_phone_number"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
@@ -240,7 +239,7 @@
                     android:background="@color/dcn_color_login_box_gb" />
 
                 <RelativeLayout
-                    android:id="@+id/dcn_ucenter_set_security_question"
+                    android:id="@+id/binding_email"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
@@ -285,7 +284,7 @@
                     android:background="@color/dcn_color_login_box_gb" />
 
                 <RelativeLayout
-                    android:id="@+id/dcn_ucenter_set_payment_password"
+                    android:id="@+id/about_company"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
