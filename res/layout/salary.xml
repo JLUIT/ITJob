@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.job.view.BackLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    >
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+	        android:text="@string/salary"
+	        android:textSize="20sp"
+	        android:layout_centerInParent="true"
+	        android:textColor="@color/whites" 
+	        />
+	    
+	    <TextView 
+	        android:id="@+id/save"
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+	        android:text="@string/save"
+	        android:textSize="17sp"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="10dp"
+	        android:textColor="@color/whites" 
+	        />
+	    
+	</com.job.view.BackLayout>
+	
+    <LinearLayout
+         android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dp"
+         android:padding="0dp"
+               >
+		
+     		 <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:clickable="true">
+
+                    <EditText 
+                        android:id="@+id/low_salary"
+                        android:hint="@string/low_salary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dcn_login_box_bg"
+                        android:padding="9dp"
+                        />
+                    
+                    <TextView 
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/k"
+                         android:textSize="18sp"
+                         android:textColor="@color/black"
+                         android:layout_marginRight="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+                
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/dcn_color_login_box_gb" />
+                 <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:clickable="true">
+
+                     <EditText 
+                        android:id="@+id/high_salary" 
+                        android:hint="@string/high_salary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:background="@drawable/dcn_login_box_bg"
+                        android:padding="9dp"
+                        />
+                    
+                     <TextView 
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/k"
+                         android:textSize="18sp"
+                         android:textColor="@color/black"
+                         android:layout_marginRight="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

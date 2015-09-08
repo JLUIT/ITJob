@@ -14,11 +14,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.StartActivity"
+            android:name=".activity.CompanyApplyActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,45 +27,62 @@
         
          <activity 
             android:name=".activity.CompanyMessageActivity">
-             
          </activity >
          <activity 
             android:name=".activity.CompanyActivity">
-             
          </activity >
         <activity 
             android:name=".activity.LoginActivity">   
         </activity>
-        
         <activity 
             android:name=".activity.RegisterPersonActivity">
-            
         </activity>
         <activity 
             android:name=".activity.RegisterCompanyActivity">
-            
         </activity>
         <activity 
             android:name=".activity.RegisterPhoneActivity">
-            
         </activity>
         <activity 
             android:name=".activity.RegisterPasswordActivity">
-            
         </activity>
         <activity 
             android:name=".activity.CompanyBindEmailActivity">
-            
         </activity>
         <activity 
             android:name=".activity.CompanyBindPhoneActivity">
-            
         </activity>
         <activity 
             android:name=".activity.CompanyChangePassWordActivity">
-            
         </activity>
         
+        <activity 
+            android:name=".activity.ApplyMessageActivity">
+        </activity>
+        
+        <activity 
+            android:name=".activity.JobDescribeActivity">
+        </activity>
+       
+        <activity 
+            android:name=".activity.JobNameActivity">
+        </activity>
+         <activity 
+            android:name=".activity.SalaryActivity">
+        </activity>
+        <activity 
+            android:name=".activity.SalaryFuliActity">
+        </activity>
+        <activity 
+            android:name=".activity.StudyExperienceActivity">
+        </activity>
+    	<activity 
+            android:name=".activity.JobSiteActivity">
+        </activity>
+        <activity 
+            android:name=".activity.CompanyNumberActivity">
+        </activity>
     </application>
+    
 
 </manifest>

@@ -9,7 +9,6 @@
         android:layout_width="wrap_content"
      	android:src="@drawable/ic_launcher"
         android:contentDescription="@string/app_name"
-        
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"/>
     
@@ -18,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_below="@id/login_picture2">
+        
     <LinearLayout
         android:id="@+id/ll_user_info2"
         android:layout_height="wrap_content"
@@ -27,6 +27,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/lbs_popup_bg"
         android:orientation="vertical">
+        
         <EditText
             android:id="@+id/account2"
             android:layout_height="50dp"
@@ -40,6 +41,7 @@
             android:layout_height="0.5dp"
             android:layout_width="match_parent"
             android:background="@color/devide_line"/>
+        
         <EditText 
             android:id="@+id/password2"
             android:layout_height="50dp"
@@ -49,6 +51,7 @@
             android:hint="@string/et_password_hint"
             android:background="@drawable/login_et_bg"
             android:layout_margin="2dp"/>
+        
     </LinearLayout>
     
     <CheckBox 
@@ -76,7 +79,6 @@
         android:textColor="@android:color/white"/>
     </RelativeLayout>
     
-    
     <TextView 
         android:id="@+id/tv_forget_password2"
         android:layout_height="wrap_content"
@@ -88,7 +90,6 @@
         android:text="@string/forgetpassword"
         android:textSize="18sp"
         android:textColor="@color/blue"/>
-    
     
     <Button 
         android:id="@+id/register2"
