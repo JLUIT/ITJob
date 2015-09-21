@@ -1,11 +1,9 @@
 package com.job.activity;
 
-
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
@@ -152,7 +150,6 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 		});
 		
 	}
-
 
 	
 	private void initMenu() {

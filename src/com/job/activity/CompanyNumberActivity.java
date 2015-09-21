@@ -13,16 +13,18 @@ public class CompanyNumberActivity extends BaseActivity {
 
 	private TextView save;
 	private EditText company_num;
-	@Override
+   	
+	@Override  
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.need_number);
-		init();
+		init(); 
 	}
+	
 
 	private void init() {
-
+  
 		save = (TextView) findViewById(R.id.save);
 		company_num = (EditText) findViewById(R.id.need_num);
 		save.setOnClickListener(new OnClickListener() {
@@ -35,13 +37,13 @@ public class CompanyNumberActivity extends BaseActivity {
 					
 				}
 			}
-		});
+		}); 
 	}
 
 	protected boolean save_num() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	
+		return false; 
+	}
+ 
+		
 }
