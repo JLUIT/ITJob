@@ -1,6 +1,5 @@
 package com.job.activity;
 
-
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.job.R;
-import com.job.adapter.MenuAdapter;
+import com.job.adapter.MenuAdapter;			
 import com.job.base.BaseActivity;
 import com.job.bean.Menu;
 import com.job.fragment.ContactFragment;
@@ -60,7 +59,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+									
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_company);
 		initDragLayout();
@@ -71,7 +70,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private void initView() {
-	
+																															
 		messageLayout = findViewById(R.id.message_layout);
 		schoolLayout = findViewById(R.id.school_layout);
 		contactsLayout = findViewById(R.id.contacts_layout);
