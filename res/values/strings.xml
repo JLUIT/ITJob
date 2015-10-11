@@ -63,6 +63,7 @@
     <string name="conduct">咨询</string>
     <string name="send">发布</string>
     <string name="kilometer">km2</string>
+    <string name="people">人</string>
     <string name="k">k</string>
     <string name="save">保存</string>
     <string name="file_manage">简历管理</string>
@@ -84,4 +85,12 @@
 	<string name="dcn_register_password_digits">
       (6-16位，数字、字母)
     </string>
+    <string name="pull_to_refresh_pull_label">Pull to refresh…</string>
+    <string name="pull_to_refresh_release_label">Release to refresh…</string>
+    <string name="pull_to_refresh_refreshing_label">Loading…</string>
+
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
 </resources>
