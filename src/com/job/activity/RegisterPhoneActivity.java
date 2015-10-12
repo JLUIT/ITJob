@@ -9,7 +9,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,12 +16,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
-
 import com.job.R;
 import com.job.base.BaseActivity;
 
@@ -32,6 +27,7 @@ public class RegisterPhoneActivity extends BaseActivity {
 	private Button next_btn;
 	private String type;
 	private String phoneNumber;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -47,6 +43,7 @@ public class RegisterPhoneActivity extends BaseActivity {
 			public void onClick(View v) {
 				Thread thread =new Thread(new CheckThread());
 				thread.start();	
+				
 			}
 		});
 	}
@@ -90,7 +87,7 @@ public class RegisterPhoneActivity extends BaseActivity {
 
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
+			
 			phoneNumber=phone.getText().toString().trim();
 			Message msg = handler.obtainMessage();
 			if(phoneNumber.equals(""))
@@ -108,7 +105,7 @@ public class RegisterPhoneActivity extends BaseActivity {
 					msg.what=CheckServer(object);
 					handler.sendMessage(msg);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -118,7 +115,7 @@ public class RegisterPhoneActivity extends BaseActivity {
     
     private int CheckServer(JSONObject object)  
     {  
-    	String path="http://49.140.60.236:8080/IT/P_Regist";
+    	String path=LoginActivity.URL+"P_Regist";
     	try{
     		URL url=new URL(path);
     		String content = String.valueOf(object);
@@ -141,10 +138,9 @@ public class RegisterPhoneActivity extends BaseActivity {
         	}
         	else return 1;
     	}catch (MalformedURLException e) {  
-            // TODO Auto-generated catch block  
-            e.printStackTrace();  
+            e.printStackTrace();
+            
         } catch (IOException e) {  
-            // TODO Auto-generated catch block  
             e.printStackTrace();  
         }  
         return 1;

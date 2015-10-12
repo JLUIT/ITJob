@@ -17,15 +17,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.job.R;
-import com.job.adapter.MenuAdapter;
+import com.job.adapter.MenuAdapter;			
 import com.job.base.BaseActivity;
 import com.job.bean.Menu;
 import com.job.fragment.ContactFragment;
 import com.job.fragment.GuideFragment;
 import com.job.fragment.MessageFragment;
 import com.job.fragment.SchoolFragment;
+import com.job.util.ActivityCollector;
 import com.job.util.ImageUtil;
 import com.job.view.DragLayout;
 import com.job.view.DragLayout.DragListener;
@@ -42,7 +42,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	private SchoolFragment schoolFragment;
 	private GuideFragment guideFragment;
 	private View messageLayout;
-	private View contactsLayout;
+	private View contactsLayout;		
 	private View schoolLayout;	
 	private View guideLayout;
 	private ImageView messageImage;
@@ -58,18 +58,18 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+									
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_company);
 		initDragLayout();
-		initView();
+		initView();			
 		fragmentManager = getFragmentManager();
 		// 第一次启动时选中第0个tab
 		setTabSelection(0);
 	}
 
 	private void initView() {
-	
+																															
 		messageLayout = findViewById(R.id.message_layout);
 		schoolLayout = findViewById(R.id.school_layout);
 		contactsLayout = findViewById(R.id.contacts_layout);
@@ -122,7 +122,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 				
 				//招聘信息
 				if(position == 1){
-					
+					intent2Activity(CompanyApplyActivity.class);
 				}
 				
 				//我的收藏
@@ -132,7 +132,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 				
 				//退出应用
 				if(position == 3){
-					
+					ActivityCollector.finishAll();
 				}
 				
 				//注销
@@ -151,7 +151,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 		
 	}
 
-	
+	 
 	private void initMenu() {
 		
 		Menu menu1 = new Menu("简历管理");

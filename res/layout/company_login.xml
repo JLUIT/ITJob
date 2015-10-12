@@ -11,7 +11,7 @@
         android:contentDescription="@string/app_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"/>
-    
+    	
     <RelativeLayout 
         android:id="@+id/rl_user2"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/lbs_popup_bg"
         android:orientation="vertical">
-        
+        	
         <EditText
             android:id="@+id/account2"
             android:layout_height="50dp"
