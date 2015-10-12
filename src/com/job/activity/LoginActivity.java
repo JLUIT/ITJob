@@ -65,7 +65,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	private String type="";//登录类型 0  个人，1  公司
 	public static String name="";
 	public static String pass="";
-	
+	public static String URL="http://10.150.119.142:8080/IT/";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -363,7 +363,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	
 	 private boolean loginServer(String username, String password)  
 	    {  
-		 String path="http://49.140.60.236:8080/IT/Login";  
+		 String path=URL+"Login";  
 	        //将用户名和密码放入HashMap中  
 	        Map<String,String> params=new HashMap<String,String>();  
 	        params.put("userName", username);  

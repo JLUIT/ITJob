@@ -41,8 +41,8 @@ public class MessageFragment extends Fragment {
 				container, false);
 		
 		
-		init();
-		new GetDataTask().execute();
+//		init();
+//		new GetDataTask().execute();
 		return messageLayout;
 	}
 

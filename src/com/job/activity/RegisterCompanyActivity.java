@@ -135,7 +135,7 @@ public class RegisterCompanyActivity extends BaseActivity {
     
     private int RegisterServer(JSONObject object)  
     {  
-    	String path="http://49.140.60.236:8080/IT/E_Regist";
+    	String path=LoginActivity.URL+"E_Regist";
     	try{
     		URL url=new URL(path);
     		String content = String.valueOf(object);
