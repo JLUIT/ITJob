@@ -1,6 +1,7 @@
 package com.job.base;
 
 
+import com.job.util.ActivityCollector;
 import com.job.util.ToastUtils;
 
 import android.app.Activity;
@@ -18,6 +19,7 @@ public class BaseActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		Log.d("BaseActivity", getClass().getSimpleName());
+		ActivityCollector.addActivity(this);
 	}
 
 	protected void intent2Activity(Class<? extends Activity> tarActivity) {
@@ -27,6 +29,13 @@ public class BaseActivity extends Activity {
 	
 	protected void showToast(String msg) {
 		ToastUtils.showToast(this, msg, Toast.LENGTH_SHORT);
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		ActivityCollector.removeActivity(this);
 	}
 
 	

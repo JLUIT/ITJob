@@ -44,7 +44,7 @@ public class CompanyApplyActivity extends BaseActivity {
 
 	private void init() {
 		
-		 edit_msg = (ImageView) findViewById(R.id.release);
+		 edit_msg = (ImageView)  findViewById(R.id.release);
 		 edit_msg.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -95,7 +95,7 @@ public class CompanyApplyActivity extends BaseActivity {
 				soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
 				soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
 				mPullRefreshListView.setOnPullEventListener(soundListener);		
-				
+				 
 				
 	}
 
@@ -126,7 +126,7 @@ public class CompanyApplyActivity extends BaseActivity {
 			super.onPostExecute(result);
 		}
 		
-		
+			 
 	}
 
 	//加载更多，每上拉一次加载十条数据
