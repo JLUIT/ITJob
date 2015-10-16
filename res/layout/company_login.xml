@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
      	android:src="@drawable/ic_launcher"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/app_name" 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"/>
     	
@@ -30,7 +30,7 @@
         	
         <EditText
             android:id="@+id/account2"
-            android:layout_height="50dp"
+            android:layout_height="50dp" 
             android:layout_width="match_parent"
             android:padding="5dp"
             android:inputType="text"

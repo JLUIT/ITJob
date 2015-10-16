@@ -84,7 +84,7 @@
             android:id="@+id/rl_title"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:background="#009933" >
+            android:background="#0099FF" >
 
             <ImageView
                 android:id="@+id/iv_icon"    
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="IT职业联盟"
+                android:text="IT 职 业 联 盟"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
         </RelativeLayout>
@@ -106,7 +106,7 @@
         <FrameLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="390dp"
+            android:layout_height="440dp"
             android:layout_below="@+id/rl_title" >
         </FrameLayout>
 

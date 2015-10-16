@@ -16,13 +16,18 @@
     <string name="change_phoneNumber">换绑手机号码</string>
     <string name="btn_next">下一步</string>
     <string name="job_name">职位名称</string>
-    <string name="salary">薪资/月</string>
+    <string name="salary">工作薪资：</string>
     <string name="confirm_password">请确认密码</string>
     <string name="in_salary">请输入薪资</string>
     <string name="low_salary">最低薪资</string>
+    <string name="province">省份</string>
     <string name="high_salary">最高薪资</string>
     <string name="company_naturl">公司性质</string>
+    <string name="company_naturl1">公司性质：</string>
     <string name="company_size">公司规模</string>
+    <string name="company_size1">公司规模：</string>
+    <string name="job_site">工作地点：</string>
+     <string name="filter_job">筛  选  职  位</string>
     <string name="company_number">所需人数</string>
     <string name="in_company_number">请输入所需人数</string>
      <string name="in_job_name">请输入职位名称</string>
@@ -36,6 +41,9 @@
     <string name="member_trip">员工旅游</string>
     <string name="job_describe">职位描述</string>
     <string name="job_describe_detail">岗位描述(可空)</string>
+    <string name="stu_exp">学历要求：</string>
+    <string name="send_date">发布日期：</string>
+    <string name="filter">筛  选</string>
     <string name="job_point">工作地点</string>
     <string name="change_email">换绑邮箱</string>
     <string name="tv_xieyi">我已阅读并同意</string>
@@ -53,7 +61,7 @@
     <string name="person">个人</string>
     <string name="company">公司</string>
     <string name="company_center">公司中心</string>
-    <string name="back">返回</string>
+    <string name="back">返 回</string>
     <string name="et_account_hint">请输入用户名/手机号/邮箱</string>
     <string name="account_hint">请输入公司名</string>
     <string name="et_password_hint">请输入密码</string>
@@ -78,7 +86,6 @@
     <string name="conduct_record">咨询记录</string>
     <string name="about_company">关于公司</string>
     <string name="combine">已绑定</string>
-    
     <string name="specialize_student">专科生</string>
     <string name="undergraduates">本科生</string>
     <string name="research_student">研究生</string>
@@ -93,4 +100,5 @@
     <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
     <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
     <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+    <string name="city">城市</string>
 </resources>
