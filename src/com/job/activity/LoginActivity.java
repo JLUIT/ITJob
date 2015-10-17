@@ -25,7 +25,6 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -65,7 +64,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	private String type="";//登录类型 0  个人，1  公司
 	public static String name="";
 	public static String pass="";
-	public static String URL="http://10.150.119.142:8080/IT/";
+	public static String URL="http://10.150.108.139:8080/IT/";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
