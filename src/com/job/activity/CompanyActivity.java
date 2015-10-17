@@ -4,6 +4,22 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.job.R;
+import com.job.adapter.MenuAdapter;
+import com.job.base.BaseActivity;
+import com.job.bean.Menu;
+import com.job.fragment.ConsultFragment;
+import com.job.fragment.ContactFragment;
+import com.job.fragment.GuideFragment;
+import com.job.fragment.MessageFragment;
+import com.job.fragment.SchoolFragment;
+import com.job.util.ActivityCollector;
+import com.job.util.ImageUtil;
+import com.job.view.DragLayout;
+import com.job.view.DragLayout.DragListener;
+import com.nineoldandroids.view.ViewHelper;
+
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
@@ -17,19 +33,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.job.R;
-import com.job.adapter.MenuAdapter;			
-import com.job.base.BaseActivity;
-import com.job.bean.Menu;
-import com.job.fragment.ContactFragment;
-import com.job.fragment.GuideFragment;
-import com.job.fragment.MessageFragment;
-import com.job.fragment.SchoolFragment;
-import com.job.util.ActivityCollector;
-import com.job.util.ImageUtil;
-import com.job.view.DragLayout;
-import com.job.view.DragLayout.DragListener;
-import com.nineoldandroids.view.ViewHelper;
 
 public class CompanyActivity extends BaseActivity implements OnClickListener{
 
@@ -37,7 +40,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	private ListView lv;
 	private ImageView iv_icon,iv_bottom;
 	
-	private MessageFragment messageFragment;
+	private ConsultFragment consultFragment;
 	private ContactFragment contactsFragment;
 	private SchoolFragment schoolFragment;
 	private GuideFragment guideFragment;
@@ -227,13 +230,13 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 					// 当点击了消息tab时，改变控件的图片和文字颜色
 					messageImage.setImageResource(R.drawable.message_selected);
 					messageText.setTextColor(Color.WHITE);
-					if (messageFragment == null) {
+					if (consultFragment == null) {
 						// 如果MessageFragment为空，则创建一个并添加到界面上
-						messageFragment = new MessageFragment();
-						transaction.add(R.id.content, messageFragment);
+						consultFragment = new ConsultFragment();
+						transaction.add(R.id.content, consultFragment);
 					} else {
 						// 如果MessageFragment不为空，则直接将它显示出来
-						transaction.show(messageFragment);
+						transaction.show(consultFragment);
 					}
 					break;
 				case 1:
@@ -301,8 +304,8 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	 *            用于对Fragment执行操作的事务
 	 */
 	private void hideFragments(FragmentTransaction transaction) {
-		if (messageFragment != null) {
-			transaction.hide(messageFragment);
+		if (consultFragment != null) {
+			transaction.hide(consultFragment);
 		}
 		if (contactsFragment != null) {
 			transaction.hide(contactsFragment);

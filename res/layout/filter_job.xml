@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="30dp"
+       >
+        <TextView
+            android:id="@+id/work_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/job_site"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_alignParentLeft="true"/>
+       <LinearLayout
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_toRightOf="@id/work_place">
+           <LinearLayout
+              android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal" >
+          <TextView
+             android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/province"
+            android:textSize="16sp"/>
+        <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+      />
+        </LinearLayout>
+      <LinearLayout
+              android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginTop="4dp" >
+        <TextView
+             android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/city"
+            android:textSize="16sp"/>
+       <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+       </LinearLayout>
+     
+      </LinearLayout>
+      </RelativeLayout>
+    
+	<RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+       >
+        <TextView
+            android:id="@+id/xinshui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/salary"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+          <Spinner
+        android:id="@+id/spinner4"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/xinshui"
+         />
+    </RelativeLayout>
+    
+	<RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+       >
+        <TextView
+            android:id="@+id/xingzhi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/company_naturl1"
+             android:textColor="#000000"
+            android:textSize="16sp"/>
+         <Spinner
+        android:id="@+id/spinner6"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/xingzhi"
+         />
+     
+    </RelativeLayout>
+    
+	<RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+       >
+        <TextView
+            android:id="@+id/guimo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/company_size1"
+             android:textColor="#000000"
+            android:textSize="16sp"/>
+          <Spinner
+        android:id="@+id/spinner7"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/guimo"
+         />   
+       
+    </RelativeLayout>
+    
+	<RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+       >
+        <TextView
+            android:id="@+id/yaoqiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stu_exp"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"/>
+          <Spinner
+        android:id="@+id/spinner5"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/yaoqiu"
+         />
+            
+    </RelativeLayout>
+    
+	<RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+       >
+        <TextView
+            android:id="@+id/riqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_date"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"/>
+         <Spinner
+        android:id="@+id/spinner8"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/riqi"
+         />  
+    </RelativeLayout>
+    
+	
+	<Button 
+        android:id="@+id/btn_finish"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:text="筛      选"
+        android:textSize="18sp"
+        android:textColor="@color/whites"
+        android:background="#0099FF"/>
+
+</LinearLayout>

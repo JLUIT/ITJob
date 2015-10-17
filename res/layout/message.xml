@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView
+    <com.job.view.PullToRefreshListView
+	    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_refresh_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="message" />
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#19000000"
+        android:dividerHeight="4dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        ptr:ptrMode="both"
+        android:smoothScrollbar="true" />
 
 </LinearLayout>

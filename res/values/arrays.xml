@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="money">
+        <item>2000人民币以下</item>
+            <item>2000至5000人民币</item>
+            <item>5000到10000人民币</item>
+            <item>10000到20000人民币</item>
+            <item>20000人民币以上</item>
+    </string-array>
+    
+</resources>
