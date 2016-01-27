@@ -3,6 +3,7 @@ package com.job.activity;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -11,6 +12,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -64,7 +68,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	private String type="";//登录类型 0  个人，1  公司
 	public static String name="";
 	public static String pass="";
-	public static String URL="http://10.150.108.139:8080/IT/";
+	public static String URL="http://192.168.1.168:8080/IT/";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -360,52 +364,49 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
           
     }  
 	
-	 private boolean loginServer(String username, String password)  
-	    {  
-		 String path=URL+"Login";  
-	        //将用户名和密码放入HashMap中  
-	        Map<String,String> params=new HashMap<String,String>();  
-	        params.put("userName", username);  
-	        params.put("passWord", password);
-	        params.put("type",type);
-	        try {  
-	            return sendGETRequest(path,params,"UTF-8");  
-	        } catch (MalformedURLException e) {  
+    private boolean loginServer(String username, String password)  
+    {  
+	 	String path=URL+"Login";  
+	 	JSONObject object=new JSONObject();
+	 	try {
+			object.put("userName", username);
+			object.put("passWord", password);
+			object.put("type", type);
+			try{
+	    		URL url=new URL(path);
+	    		String content = String.valueOf(object);
+	        	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	        	conn.setConnectTimeout(5000);
+	        	conn.setDoOutput(true);
+	        	conn.setRequestMethod("POST");
+	        	conn.setRequestProperty("User-Agent", "Fiddler");
+	        	conn.setRequestProperty("Content-Type", "application/json");
+	        	OutputStream os = conn.getOutputStream();
+	        	os.write(content.getBytes());
+	        	os.close();
+	        	int code = conn.getResponseCode();
+	        	if(code == 200)
+	        	{
+	        		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	        		String str="";
+	 	        	str=in.readLine();
+	 	        	if(str.equals("success"))
+	 	        		return true;
+	        	}
+	        	else return false;
+	    	}catch (MalformedURLException e) {  
 	            // TODO Auto-generated catch block  
 	            e.printStackTrace();  
 	        } catch (IOException e) {  
 	            // TODO Auto-generated catch block  
 	            e.printStackTrace();  
 	        }  
-	        return false;  
-	    }  
-	    private static boolean sendGETRequest(String path,Map<String,String> params,String encode) throws MalformedURLException, IOException {  
-	        StringBuilder url=new StringBuilder(path);  
-	        url.append("?");  
-	        for(Map.Entry<String, String> entry:params.entrySet())  
-	        {  
-	            url.append(entry.getKey()).append("=");  
-	            url.append(URLEncoder.encode(entry.getValue(),encode));  
-	            url.append("&");  
-	        }  
-	      //删掉最后一个&   
-	        url.deleteCharAt(url.length()-1);
-	        String str=url.toString();
-	        HttpURLConnection conn=(HttpURLConnection)new URL(str).openConnection();  
-	        conn.setConnectTimeout(5000);  
-	        conn.setRequestMethod("GET");  
-	        int code=conn.getResponseCode();
-	        if(code==200)  
-           {  
-	        	BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-	        	String result=rd.readLine();
-	        	rd.close();
-	        	if(result.equals("success"))
-	        		return true; 
-	        	else return false;
-	         }  
-	        else  return false;  
-	    }
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	 	return false;
+ }
 
 	private void forget_company() {
 				

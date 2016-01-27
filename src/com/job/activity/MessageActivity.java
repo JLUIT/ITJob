@@ -1,8 +1,18 @@
 package com.job.activity;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import com.job.R;
 import com.job.adapter.CompanyAdapter;
 import com.job.base.BaseActivity;
@@ -12,13 +22,16 @@ import com.job.view.PullToRefreshListView;
 import com.job.view.SoundPullEventListener;
 import com.job.view.PullToRefreshBase.OnRefreshListener2;
 import com.job.view.PullToRefreshBase.State;
-
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MessageActivity extends BaseActivity {
 
@@ -31,18 +44,127 @@ public class MessageActivity extends BaseActivity {
 	private CompanyAdapter adapter;
 	private List<CompanyMsg> list = new ArrayList<CompanyMsg>();
 	private View messageLayout;
-	
+	private String Info;//筛选条件
+	private String result="";//筛选结果
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.message);
-		init();
-		new GetDataTask().execute(); 	
+		Intent intent=getIntent();
+		Info=intent.getStringExtra("content");//初始时显示筛选后的招聘信息列表5条；下拉刷新；上拉再加载5条；
+		Thread thread=new Thread(new selectThread());
+		thread.start();
+		//init();
+		//new GetDataTask().execute(); 	
 		
 	}
 
+	Handler handler = new Handler()  
+    {  
+        public void handleMessage(Message msg)  
+        {  
+            switch(msg.what)  
+            {  
+            case 0:  
+            	Toast.makeText(getApplicationContext(), "没有符合要求的招聘信息，请重新筛选！", Toast.LENGTH_SHORT).show();
+            	finish();
+            	break;
+            case 1://成功返回筛选结果
+            	try {
+					JSONArray JobInfo=new JSONArray(result);
+					int size=JobInfo.length();
+					for(int i=0;i<size;i++)
+					{
+						final JSONObject object=JobInfo.optJSONObject(i);
+						String value=object.getString("jobName")+" "+object.getString("e_Name")+" "+object.getInt("salary")+" "
+								+object.getString("province")+" "+object.getString("city");//value是需要显示的信息
+						//接下来写职位列表代码，将value信息添加上去；并且设置列表点击监听器；
+						
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            	
+            }  
+              
+        }  
+    };  
 	
+    class selectThread implements Runnable
+    {
+
+		@Override
+		public void run() {
+			String[] str=Info.split(" ");
+			JSONObject object=new JSONObject();
+			Message msg = handler.obtainMessage();
+			try {
+				object.put("province", str[0]);
+				object.put("city", str[1]);
+				object.put("salary", str[2]);
+				object.put("property", str[3]);
+				object.put("scope", str[4]);
+				object.put("acaQualification", str[5]);
+				object.put("sendTime", str[6]);
+				boolean result=SelectServer(object);
+				if(result)
+				{
+					msg.what=1;
+					handler.sendMessage(msg);
+				}
+				else
+				{
+					msg.what=0;
+					handler.sendMessage(msg);
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+    	
+    }
+    
+    private boolean SelectServer(JSONObject resume)  
+    {  
+    	String path=LoginActivity.URL+"SelectJobInfo";
+    	try{
+    		URL url=new URL(path);
+    		String content = String.valueOf(resume);
+        	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        	conn.setConnectTimeout(5000);
+        	conn.setDoOutput(true);
+        	conn.setRequestMethod("POST");
+        	conn.setRequestProperty("User-Agent", "Fiddler");
+        	conn.setRequestProperty("Content-Type", "application/json");
+        	OutputStream os = conn.getOutputStream();
+        	os.write(content.getBytes());
+        	os.close();
+        	int code = conn.getResponseCode();
+        	if(code == 200)
+        	{
+        		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        		String str="";
+        		while((str=in.readLine())!=null)
+ 	        		result+=str;
+ 	        	in.close();
+        		if(result.equals("null"))
+        			return false;
+        		else return true;
+        	}
+        	else return false;
+    	}catch (MalformedURLException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        } catch (IOException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        }  
+        return false;
+    }
+    
 	private void init() {
 		mPullRefreshListView = (PullToRefreshListView) messageLayout.findViewById(R.id.pull_refresh_list);
 		// Set a listener to be invoked when the list should be refreshed.
