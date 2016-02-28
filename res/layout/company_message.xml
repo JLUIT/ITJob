@@ -3,117 +3,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-	<com.job.view.BackLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    >
-	    <TextView 
-	        android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-	        android:text="@string/company_center"
-	        android:textSize="20sp"
-	        android:layout_centerInParent="true"
-	        android:textColor="@color/whites" 
-	        />
-	</com.job.view.BackLayout>
-	
-	<RelativeLayout
-            android:id="@+id/dcn_ucenter_user_info_item"
-            android:layout_width="fill_parent"
-            android:layout_height="84dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/dcn_login_box_bg"
-            android:orientation="horizontal">
-		 <ImageView
-                android:id="@+id/dcn_user_image"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="12dp"
-                android:layout_gravity="center_vertical"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_launcher" />
-		 
-		  <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_gravity="center_vertical"
-                android:layout_toRightOf="@+id/dcn_user_image"
-                android:layout_centerVertical="true"
-                android:orientation="vertical">
-                
-		      	
-	     <TextView
-		        android:id="@+id/comapny_name"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:singleLine="true"
-		        android:text="Tencent"
-		        android:textColor="@color/black"
-		        android:textSize="20sp" />
-		
-		      
-		  </LinearLayout>
-	    
-	</RelativeLayout>
-	
-	<ScrollView
-        android:id="@+id/dcn_ucenter_scroll"
+
+    <com.job.view.BackLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbars="none">
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/company_center"
+            android:textColor="@color/whites"
+            android:textSize="20sp" />
+    </com.job.view.BackLayout>
+
+    <RelativeLayout
+        android:id="@+id/dcn_ucenter_user_info_item"
+        android:layout_width="fill_parent"
+        android:layout_height="84dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/dcn_login_box_bg"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/dcn_user_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_launcher" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@+id/dcn_user_image"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/comapny_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Tencent"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/dcn_ucenter_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="10dp"></LinearLayout>
-            
+                android:layout_height="20dp" >
+            </LinearLayout>
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/dcn_login_box_bg"
-                android:padding="0dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:background="@drawable/dcn_login_box_bg"
+                android:orientation="vertical"
+                android:padding="0dp" >
 
                 <RelativeLayout
                     android:id="@+id/message_center"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
-                    android:clickable="true">
+                    android:clickable="true" >
 
                     <TextView
                         android:id="@+id/dcn_trading_record_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textSize="16sp"
-                        android:textColor="@color/dcn_light_black"
-                        android:paddingLeft="10dip"
                         android:gravity="center_vertical"
-                        android:text="@string/message_center" />
-
-                  
+                        android:paddingLeft="10dip"
+                        android:text="@string/message_center"
+                        android:textColor="@color/dcn_light_black"
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/dcn_right_arrow_image1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dcn_right_arrow"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/dcn_right_arrow" />
                 </RelativeLayout>
 
                 <View
@@ -126,68 +121,67 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
-                    android:clickable="true">
+                    android:clickable="true" >
 
                     <TextView
                         android:id="@+id/dcn_message_center_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textSize="16sp"
-                        android:textColor="@color/dcn_light_black"
-                        android:paddingLeft="10dip"
                         android:gravity="center_vertical"
-                        android:text="@string/conduct_record" />
+                        android:paddingLeft="10dip"
+                        android:text="@string/conduct_record"
+                        android:textColor="@color/dcn_light_black"
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/dcn_right_arrow_image2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dcn_right_arrow"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp" />
-                    
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/dcn_right_arrow" />
                 </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/dcn_login_box_bg"
-                android:padding="0dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginTop="20dp"
+                android:background="@drawable/dcn_login_box_bg"
+                android:orientation="vertical"
+                android:padding="0dp" >
 
                 <RelativeLayout
                     android:id="@+id/change_password"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
-                    android:clickable="true">
+                    android:clickable="true" >
 
                     <TextView
                         android:id="@+id/dcn_change_password_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textSize="16sp"
-                        android:textColor="@color/dcn_light_black"
-                        android:paddingLeft="10dip"
                         android:gravity="center_vertical"
-                        android:text="@string/edit_password" />
+                        android:paddingLeft="10dip"
+                        android:text="@string/edit_password"
+                        android:textColor="@color/dcn_light_black"
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/dcn_right_arrow_image3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dcn_right_arrow"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/dcn_right_arrow" />
                 </RelativeLayout>
 
                 <View
@@ -200,39 +194,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
-                    android:clickable="true">
+                    android:clickable="true" >
 
                     <TextView
                         android:id="@+id/dcn_binding_phone_number_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textSize="16sp"
-                        android:textColor="@color/dcn_light_black"
-                        android:paddingLeft="10dip"
                         android:gravity="center_vertical"
-                        android:text="@string/conbine_phone" />
+                        android:paddingLeft="10dip"
+                        android:text="@string/conbine_phone"
+                        android:textColor="@color/dcn_light_black"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/dcn_phone_bound"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:text="@string/combine"
-                        android:textColor="@color/black"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="25dip"
-                        />
+                        android:text="@string/combine"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/dcn_right_arrow_image4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dcn_right_arrow"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/dcn_right_arrow" />
                 </RelativeLayout>
 
                 <View
@@ -245,39 +238,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
-                    android:clickable="true">
+                    android:clickable="true" >
 
                     <TextView
                         android:id="@+id/dcn_set_security_question_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textSize="16sp"
-                        android:textColor="@color/dcn_light_black"
-                        android:paddingLeft="10dip"
                         android:gravity="center_vertical"
-                        android:text="@string/conbine_email" />
+                        android:paddingLeft="10dip"
+                        android:text="@string/conbine_email"
+                        android:textColor="@color/dcn_light_black"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/dcn_question_set"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:text="@string/combine"
-                        android:textColor="@color/black"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="25dip"
-                        />
+                        android:text="@string/combine"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/dcn_right_arrow_image5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dcn_right_arrow"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/dcn_right_arrow" />
                 </RelativeLayout>
 
                 <View
@@ -290,34 +282,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
-                    android:clickable="true">
+                    android:clickable="true" >
 
                     <TextView
                         android:id="@+id/dcn_set_payment_password_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textSize="16sp"
-                        android:textColor="@color/dcn_light_black"
-                        android:paddingLeft="10dip"
                         android:gravity="center_vertical"
-                        android:text="@string/about_company" />
+                        android:paddingLeft="10dip"
+                        android:text="@string/about_company"
+                        android:textColor="@color/dcn_light_black"
+                        android:textSize="16sp" />
 
-                   
-	
                     <ImageView
                         android:id="@+id/dcn_right_arrow_image6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dcn_right_arrow"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/dcn_right_arrow" />
                 </RelativeLayout>
-
             </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
-	
+
 </LinearLayout>

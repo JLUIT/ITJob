@@ -12,7 +12,6 @@ import com.job.bean.Menu;
 import com.job.fragment.ConsultFragment;
 import com.job.fragment.ContactFragment;
 import com.job.fragment.GuideFragment;
-import com.job.fragment.MessageFragment;
 import com.job.fragment.SchoolFragment;
 import com.job.util.ActivityCollector;
 import com.job.util.ImageUtil;

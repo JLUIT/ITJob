@@ -8,7 +8,7 @@
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="40.0dip"
-        android:background="#009933" >
+        android:background="#0099FF" >
 
         <TextView
             android:id="@+id/text1"

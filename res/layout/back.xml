@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-   	    android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#0099FF"
-    >
-	
-   <ImageView
-            android:id="@+id/back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"            
-            android:src="@drawable/back" />
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#0099FF" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/back"
-            android:layout_centerVertical="true"
-            android:textColor="@color/whites"
-            android:text="@string/back"
-            android:textSize="20sp" />
-        
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/back_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/back"
+        android:text="@string/back"
+        android:textColor="@color/whites"
+        android:textSize="16sp" />
 
 </RelativeLayout>
-
