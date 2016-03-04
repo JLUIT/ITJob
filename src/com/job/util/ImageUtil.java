@@ -12,8 +12,8 @@ import android.graphics.RectF;
 public class ImageUtil {
 
 	/** 
-	 * ×ª»»Í¼Æ¬³ÉÔ²ÐÎ * 
-	 * @param bitmap ´«ÈëBitmap¶ÔÏó 
+	 * ×ªï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ô²ï¿½ï¿½ * 
+	 * @param bitmap ï¿½ï¿½ï¿½ï¿½Bitmapï¿½ï¿½ï¿½ï¿½ 
 	 * @return 
 	 */
 	public static Bitmap getRoundBitmap(Bitmap bitmap) {     

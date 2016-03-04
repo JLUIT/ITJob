@@ -54,6 +54,8 @@
     <string name="finish">完成</string>
     <string name="email">请填写邮箱</string>
     <string name="contact">发现</string>
+    <string name="gallery">图库</string>
+    <string name="camera">拍照</string>
     <string name="guide">指南</string>
     <string name="tv_tips_name">建议填写你的真实姓名,让你的朋友更容易人出你,此昵称以后可以随时修改</string>
     <string name="tv_tips_password">密码由6-16位数字,字母或符号组成,不能是9位一下纯数字组成</string>

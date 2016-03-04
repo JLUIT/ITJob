@@ -55,7 +55,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	private TextView contactsText;
 	private TextView schoolText;
 	private TextView guideText;
-	private FragmentManager fragmentManager;
+	private FragmentManager fragmentManager;	
 	private List<Menu> menuList = new ArrayList<Menu>();
 	
 	@Override
