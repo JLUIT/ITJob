@@ -48,8 +48,6 @@ public class CompanyAdapter extends BaseAdapter {
 			viewHolder = new ViewHolder();
 			viewHolder.job_name = (TextView) view.findViewById(R.id.job_name);
 			viewHolder.company_name = (TextView) view.findViewById(R.id.company_name);
-			viewHolder.company_size = (TextView) view.findViewById(R.id.company_size);
-			viewHolder.experience = (TextView) view.findViewById(R.id.experience);
 			viewHolder.salary = (TextView) view.findViewById(R.id.salary);
 			viewHolder.site = (TextView) view.findViewById(R.id.site);
 			view.setTag(viewHolder);
@@ -61,10 +59,9 @@ public class CompanyAdapter extends BaseAdapter {
 		
 		viewHolder.job_name.setText(list.get(position).getJob_name());
 		viewHolder.company_name.setText(list.get(position).getCompany_name());
-		viewHolder.company_size.setText(list.get(position).getCompany_size());
-		viewHolder.experience.setText(list.get(position).getExperience());
 		viewHolder.salary.setText(list.get(position).getSalary());
 		viewHolder.site.setText(list.get(position).getSite());
+		
 		return view;
 		
 	}
@@ -73,10 +70,9 @@ public class CompanyAdapter extends BaseAdapter {
 		
 		TextView job_name;
 		TextView company_name;
-		TextView company_size;
-		TextView experience;
 		TextView salary;
 		TextView site;
+		
 		
 	}
 	

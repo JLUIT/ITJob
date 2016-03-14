@@ -13,15 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.job.R;
-import com.job.adapter.CompanyAdapter;
-import com.job.base.BaseActivity;
-import com.job.bean.CompanyMsg;
-import com.job.view.PullToRefreshBase;
-import com.job.view.PullToRefreshListView;
-import com.job.view.SoundPullEventListener;
-import com.job.view.PullToRefreshBase.OnRefreshListener2;
-import com.job.view.PullToRefreshBase.State;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,8 +22,20 @@ import android.os.Message;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.job.R;
+import com.job.adapter.CompanyAdapter;
+import com.job.base.BaseActivity;
+import com.job.bean.CompanyMsg;
+import com.job.view.PullToRefreshBase;
+import com.job.view.PullToRefreshBase.OnRefreshListener2;
+import com.job.view.PullToRefreshBase.State;
+import com.job.view.PullToRefreshListView;
+import com.job.view.SoundPullEventListener;
 
 public class MessageActivity extends BaseActivity {
 
@@ -43,7 +47,6 @@ public class MessageActivity extends BaseActivity {
 	private int list_num = 10;
 	private CompanyAdapter adapter;
 	private List<CompanyMsg> list = new ArrayList<CompanyMsg>();
-	private View messageLayout;
 	private String Info;//筛选条件
 	private String result="";//筛选结果
 	@Override
@@ -51,18 +54,18 @@ public class MessageActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.message);
+		init();
 		Intent intent=getIntent();
 		Info=intent.getStringExtra("content");//初始时显示筛选后的招聘信息列表5条；下拉刷新；上拉再加载5条；
 		Thread thread=new Thread(new selectThread());
 		thread.start();
-		//init();
-		//new GetDataTask().execute(); 	
+//		new GetDataTask().execute(); 	
 		
 	}
 
 	Handler handler = new Handler()  
     {  
-        public void handleMessage(Message msg)  
+		public void handleMessage(Message msg)  
         {  
             switch(msg.what)  
             {  
@@ -80,8 +83,18 @@ public class MessageActivity extends BaseActivity {
 						String value=object.getString("jobName")+" "+object.getString("e_Name")+" "+object.getInt("salary")+" "
 								+object.getString("province")+" "+object.getString("city");//value是需要显示的信息
 						//接下来写职位列表代码，将value信息添加上去；并且设置列表点击监听器；
+						CompanyMsg item = new CompanyMsg();
+						item.setJob_name(object.getString("jobName"));
+						item.setSalary("￥"+object.getInt("salary"));
+						item.setSite(object.getString("province")+object.getString("city"));
+						item.setCompany_name(object.getString("e_Name"));
+						list.add(item);
 						
 					}
+					adapter = new CompanyAdapter(MessageActivity.this, list);
+					mPullRefreshListView.setAdapter(adapter);
+					adapter.notifyDataSetChanged();
+					mPullRefreshListView.onRefreshComplete();
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -166,9 +179,17 @@ public class MessageActivity extends BaseActivity {
     }
     
 	private void init() {
-		mPullRefreshListView = (PullToRefreshListView) messageLayout.findViewById(R.id.pull_refresh_list);
+		mPullRefreshListView = (PullToRefreshListView)findViewById(R.id.pull_refresh_list);
 		// Set a listener to be invoked when the list should be refreshed.
-		
+				mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						
+							
+					}
+				});
 				mPullRefreshListView
 				.setOnRefreshListener(new OnRefreshListener2<ListView>()
 				{
@@ -185,7 +206,9 @@ public class MessageActivity extends BaseActivity {
 						refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
  
 						// Do work to refresh the list here.  
-						new GetDataTask().execute();
+						Thread thread=new Thread(new selectThread());
+						thread.start();
+//						new GetDataTask().execute();
 					} 
 		
 					@Override
@@ -194,7 +217,9 @@ public class MessageActivity extends BaseActivity {
 					{
 						Log.e("TAG", "onPullUpToRefresh");
 						//这里写上拉加载更多的任务
-						new GetMoreDateTask().execute();
+						Thread thread=new Thread(new selectThread());
+						thread.start();
+//						new GetMoreDateTask().execute();
 					}
 				});
 				
@@ -208,7 +233,7 @@ public class MessageActivity extends BaseActivity {
 				mPullRefreshListView.setOnPullEventListener(soundListener);		
 	}
 	
-	//下拉刷新时加载最新招聘信息
+	//下拉刷新时加载最新招聘信息		
 		private class GetDataTask extends AsyncTask<Void, Void, List<CompanyMsg>> {
 
 			
@@ -219,7 +244,9 @@ public class MessageActivity extends BaseActivity {
 				list.clear();
 				//从数据库读取最新的招聘信息
 				for(int i=0; i<list_num; i++){
-					
+					CompanyMsg item = new CompanyMsg("Android开发工程师", "阿里巴巴", "本科", 
+							"广东省广州市", "20~90人", "￥6k-12k", "国企", "2010年6月12日");
+					list.add(item);
 				}
 				
 				return list;
@@ -247,7 +274,9 @@ public class MessageActivity extends BaseActivity {
 				
 				//数据库读取额外的十条数据
 				for(int i=0; i<list_num; i++){
-					
+					CompanyMsg item = new CompanyMsg("Android开发工程师", "阿里巴巴", "本科", 
+							"广东省广州市", "20~90人", "￥6k-12k", "国企", "2010年6月12日");
+					list.add(item);
 				}
 				
 				return list;

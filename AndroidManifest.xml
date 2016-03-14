@@ -6,7 +6,7 @@
 
     <uses-sdk 
         android:minSdkVersion="13"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="23" />
 	 <uses-permission android:name="android.permission.INTERNET" />
 	 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
     </uses-permission>
@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.CompanyActivity"
+            android:name=".activity.MessageActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
             android:name=".activity.MonitoredActivity">    
         </activity>
         <activity 
-            android:name=".activity.PersonActivity">    
+            android:name=".activity.CompanyActivity">    
         </activity>
         <activity 
             android:name=".activity.CompanyMessageActivity">    
@@ -46,7 +46,7 @@
          </activity >
          
          <activity 
-            android:name=".activity.MessageActivity">
+            android:name=".activity.PersonActivity">
          </activity >
          <activity 
             android:name=".activity.CompanyApplyActivity">   
