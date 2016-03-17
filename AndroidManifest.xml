@@ -4,107 +4,86 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk 
+    <uses-sdk
         android:minSdkVersion="13"
-        android:targetSdkVersion="23" />
-	 <uses-permission android:name="android.permission.INTERNET" />
-	 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
     </uses-permission>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
     </uses-permission>
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher" 
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.MessageActivity"
+            android:name=".activity.PersonActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity 
-            android:name=".activity.ConsultActivity">    
+        <activity android:name=".activity.ConsultActivity" >
         </activity>
-        <activity
-            android:name=".activity.CropImage">
-            
+        <activity android:name=".activity.CropImage" >
         </activity>
-         <activity 
-            android:name=".activity.MonitoredActivity">    
+        <activity android:name=".activity.MonitoredActivity" >
         </activity>
-        <activity 
-            android:name=".activity.CompanyActivity">    
+        <activity android:name=".activity.MessageActivity" >
         </activity>
-        <activity 
-            android:name=".activity.CompanyMessageActivity">    
+         <activity android:name=".activity.ChooseProActivity" >
         </activity>
-         <activity 
-            android:name=".activity.FilterJobActivity">
-         </activity >
-         
-         <activity 
-            android:name=".activity.PersonActivity">
-         </activity >
-         <activity 
-            android:name=".activity.CompanyApplyActivity">   
+        <activity android:name=".activity.CompanyMessageActivity" >
         </activity>
-        <activity 
-            android:name=".activity.LoginActivity">   
+        <activity android:name=".activity.PersonMessageActivity" >
         </activity>
-        <activity 
-            android:name=".activity.RegisterPersonActivity">
+        <activity android:name=".activity.FilterJobActivity" >
         </activity>
-        <activity 
-            android:name=".activity.RegisterCompanyActivity">
+        <activity android:name=".activity.CollegeChooseActivity" >
         </activity>
-        <activity 
-            android:name=".activity.RegisterPhoneActivity">
+        <activity android:name=".activity.JobInforAcitivity" >
         </activity>
-        <activity 
-            android:name=".activity.RegisterPasswordActivity">
+        <activity android:name=".activity.CompanyActivity" >
         </activity>
-        <activity 
-            android:name=".activity.CompanyBindEmailActivity">
+        <activity android:name=".activity.CompanyApplyActivity" >
         </activity>
-        <activity 
-            android:name=".activity.CompanyBindPhoneActivity">
+        <activity android:name=".activity.LoginActivity" >
         </activity>
-        <activity 
-            android:name=".activity.CompanyChangePassWordActivity">
+        <activity android:name=".activity.RegisterPersonActivity" >
         </activity>
-        
-        <activity 
-            android:name=".activity.ApplyMessageActivity">
+        <activity android:name=".activity.RegisterCompanyActivity" >
         </activity>
-        
-        <activity 
-            android:name=".activity.JobDescribeActivity">
+        <activity android:name=".activity.RegisterPhoneActivity" >
         </activity>
-       
-        <activity 
-            android:name=".activity.JobNameActivity">
+        <activity android:name=".activity.RegisterPasswordActivity" >
         </activity>
-         <activity 
-            android:name=".activity.SalaryActivity">
+        <activity android:name=".activity.CompanyBindEmailActivity" >
         </activity>
-        <activity 
-            android:name=".activity.SalaryFuliActity">
+        <activity android:name=".activity.CompanyBindPhoneActivity" >
         </activity>
-        <activity 
-            android:name=".activity.StudyExperienceActivity">
+        <activity android:name=".activity.CompanyChangePassWordActivity" >
         </activity>
-    	<activity 
-            android:name=".activity.JobSiteActivity">
+        <activity android:name=".activity.ApplyMessageActivity" >
         </activity>
-        <activity 
-            android:name=".activity.CompanyNumberActivity">
+        <activity android:name=".activity.JobDescribeActivity" >
         </activity>
-       
-        
+        <activity android:name=".activity.JobNameActivity" >
+        </activity>
+        <activity android:name=".activity.SalaryActivity" >
+        </activity>
+        <activity android:name=".activity.SalaryFuliActity" >
+        </activity>
+        <activity android:name=".activity.StudyExperienceActivity" >
+        </activity>
+        <activity android:name=".activity.JobSiteActivity" >
+        </activity>
+        <activity android:name=".activity.CompanyNumberActivity" >
+        </activity>
     </application>
-    
 
 </manifest>

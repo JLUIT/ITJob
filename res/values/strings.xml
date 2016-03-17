@@ -17,13 +17,18 @@
     <string name="btn_next">下一步</string>
     <string name="job_name">职位名称</string>
     <string name="salary">工作薪资：</string>
+    <string name="person_center">个人中心</string>
     <string name="confirm_password">请确认密码</string>
+    <string name="school_hint">请输入就读大学</string>
     <string name="in_salary">请输入薪资</string>
     <string name="low_salary">最低薪资</string>
     <string name="province">省份</string>
     <string name="high_salary">最高薪资</string>
     <string name="company_naturl">公司性质</string>
     <string name="company_naturl1">公司性质：</string>
+    <string name="my_job">我的职业</string>
+    <string name="my_college">就读大学</string>
+    <string name="my_expert">所学专业</string>
     <string name="company_size">公司规模</string>
     <string name="company_size1">公司规模：</string>
     <string name="job_site">工作地点：</string>
@@ -56,6 +61,8 @@
     <string name="contact">发现</string>
     <string name="gallery">图库</string>
     <string name="camera">拍照</string>
+    <string name="phone_num">电话号码</string>
+    <string name="email_add">邮箱地址</string>
     <string name="guide">指南</string>
     <string name="tv_tips_name">建议填写你的真实姓名,让你的朋友更容易人出你,此昵称以后可以随时修改</string>
     <string name="tv_tips_password">密码由6-16位数字,字母或符号组成,不能是9位一下纯数字组成</string>
@@ -82,6 +89,9 @@
     <string name="input_email">请输入邮箱</string>
     <string name="conbine_phone">绑定手机</string>
     <string name="edit_password">修改密码</string>
+    <string name="college">就读大学</string>
+    <string name="pro_hint">请输入就读专业</string>
+    <string name="profession">就读专业</string>
     <string name="input_old_pwd">请输入原密码</string>
     <string name="input_new_pwd">请输入新密码</string>
     <string name="message_center">消息中心</string>
