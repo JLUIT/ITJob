@@ -42,9 +42,9 @@ public class PersonMessageActivity extends BaseActivity implements
 	private void init() {
 		crophelper = new CropHelper(this, OSUtils.getSdCardDirectory()
 				+ "/head.png");
-		job = (RelativeLayout) findViewById(R.id.chosse_job);
-		school = (RelativeLayout) findViewById(R.id.choose_college);
-		profession = (RelativeLayout) findViewById(R.id.chosse_pro);
+		job = (RelativeLayout) findViewById(R.id.apply_job);
+		school = (RelativeLayout) findViewById(R.id.inapply_job);
+		profession = (RelativeLayout) findViewById(R.id.resume);
 		change_pwd = (RelativeLayout) findViewById(R.id.change_password);
 		binding_email = (RelativeLayout) findViewById(R.id.change_email);
 		binding_tel = (RelativeLayout) findViewById(R.id.change_phone);
@@ -68,13 +68,13 @@ public class PersonMessageActivity extends BaseActivity implements
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.choose_college:
+		case R.id.inapply_job:
 			choose_college();
 			break;
-		case R.id.chosse_job:
+		case R.id.apply_job:
 			chosse_job();
 			break;
-		case R.id.chosse_pro:
+		case R.id.resume:
 			choose_pro();
 			break;
 		case R.id.change_password:

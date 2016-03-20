@@ -75,7 +75,7 @@
         android:text="@string/login"
         android:layout_below="@id/remember_password"
         android:textSize="20sp"
-        android:background="#66CC66"
+        android:background="#0099FF"
         android:textColor="@android:color/white"/>
     </RelativeLayout>
     

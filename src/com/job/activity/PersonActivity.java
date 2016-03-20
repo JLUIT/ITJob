@@ -134,12 +134,12 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 				
 				//我的简历
 				if(position == 3){
-					ActivityCollector.finishAll();
+					intent2Activity(ResumeActivity.class);
 				}
 				
 				//退出应用
 				if(position == 4){
-					
+					ActivityCollector.finishAll();
 				}
 			}
 			
