@@ -1,283 +1,341 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:scrollbars="vertical"    
-    android:fadingEdge="vertical">
-<LinearLayout
-    android:orientation="vertical" 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-     <com.job.view.BackLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    >
-	    <TextView 
-	        android:layout_width="wrap_content"
+    android:fadingEdge="vertical"
+    android:scrollbars="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.job.view.BackLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="15dp"
+                android:text="咨 询 信 息"
+                android:textColor="@color/whites"
+                android:textSize="20sp" />
+        </com.job.view.BackLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-	        android:text="咨 询 信 息"
-	        android:textSize="20sp"
-	        android:layout_centerInParent="true"
-	        android:textColor="@color/whites" 
-	        />
-	</com.job.view.BackLayout>
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp" >
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="软件构架师"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="百度有限公司"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:text="2015-10-12"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="杭州"
+                android:textColor="#999999"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:text="7000-9000元/月"
+                android:textColor="#FF0033"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/xuxian"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="10dp"
+            android:background="#FF909090" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="招聘人数"
+                    android:textColor="#999999"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="10"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="#999999" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="学历要求"
+                    android:textColor="#999999"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="研究生"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="#999999" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="公司性质"
+                    android:textColor="#999999"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="私营"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="#999999" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="公司规模"
+                    android:textColor="#999999"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="13000"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/liangdian"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="薪资福利"
+                android:textColor="#0099FF"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/liangdian1"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/liangdian"
+                android:orientation="horizontal"
+                android:weightSum="9" >
+
+                <CheckBox
+                    android:id="@+id/yijing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:checked="true"
+              
+                    android:text="五险一金"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/jiaotong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    
+                    android:checked="true"
+                    android:text="交通补贴"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/butie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    
+                    android:checked="true"
+                    android:text="餐饮补贴"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/liangdian2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@id/liangdian1"
+                android:orientation="horizontal"
+                android:weightSum="9" >
+
+                <CheckBox
+                    android:id="@+id/peixun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    
+                    android:checked="true"
+                    android:text="专业培训"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/jiangjing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    
+                    android:checked="true"
+                    android:text="年终奖金"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/lvyou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    
+                    android:checked="true"
+                    android:text="员工旅游"
+                    android:textSize="12sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@id/liangdian2"
+                    android:layout_marginTop="10dp"
+                    android:background="#FF909090" />
     
-    <LinearLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="7dp"
-        >
-     <TextView 
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="软件构架师"
-        android:textColor="#000000"
-        android:textSize="20sp"/>
-        
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="职位描述"
+            android:textColor="#0099FF"
+            android:textSize="18sp" />
     </LinearLayout>
-    <LinearLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        >
 
-     <TextView 
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="百度有限公司"
-        android:textSize="18sp"/>
-     <TextView 
-          android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:gravity="right"
-        android:text="2015-10-12"
-        android:textColor="#999999"
-        android:textSize="12sp"/>
-        
-    </LinearLayout>
-    <LinearLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        >
-     <TextView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="杭州"
-        android:textColor="#999999"
-        android:textSize="15sp"/>
-     <TextView 
-          android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:gravity="right"
-        android:text="7000-9000元/月"
-        android:textColor="#FF0033"
-        android:textSize="15sp"/>
-        
-    </LinearLayout>
-   <View
-        android:id="@+id/xuxian"
-        android:layout_marginTop="10dp"
-        android:layout_width="fill_parent" 
-        android:layout_height="1dip" 
-
-        android:background="#FF909090" /> 
-     <LinearLayout 
-         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="9"
-         >
-         <LinearLayout
-         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:orientation="vertical"
-        android:layout_weight="3"
-             >
-             <TextView 
-                 android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="招聘人数"
-        android:textColor="#999999"
-        android:textSize="15sp"/>
-              <TextView 
-                 android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="10"
-        android:textColor="#000000"
-        android:textSize="15sp"/> 
-              
-             
-         </LinearLayout>
-         <View  
-    android:layout_width="1dip" 
-    android:layout_height="fill_parent"
-    android:layout_marginLeft="20dp"
-    android:background="#999999"
-    android:layout_gravity="center_horizontal"
-    />
-          <LinearLayout
-         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:orientation="vertical"
-        android:layout_weight="3"
-             >
-             <TextView 
-                 android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="公司性质"
-        android:textColor="#999999"
-        android:textSize="15sp"/>
-              <TextView 
-                 android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="私营"
-        android:textColor="#000000"
-        android:textSize="15sp"/> 
-              
-             
-         </LinearLayout>
-           <View  
-    android:layout_width="1dip" 
-    android:layout_height="fill_parent"
-    android:layout_marginLeft="20dp"
-    android:background="#999999"
-    android:layout_gravity="center_horizontal"
-    />
-         <LinearLayout
-         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:layout_weight="3"
-        android:orientation="vertical"
-             >
-             <TextView 
-                 android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="公司规模"
-        android:textColor="#999999"
-        android:textSize="15sp"/>
-              <TextView 
-                 android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="13000"
-        android:textColor="#000000"
-        android:textSize="15sp"/> 
-              
-             
-         </LinearLayout>   
-     </LinearLayout>
-     <View
-        android:layout_width="fill_parent" 
-        android:layout_height="1dip" 
-
-        android:background="#FF909090" /> 
-     <RelativeLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        >
-   
-    <TextView
-        android:id="@+id/liangdian"
-        android:layout_marginTop="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="薪资福利"
-        android:textColor="#0099FF"
-        android:textSize="20sp"/>
-
-    <CheckBox
-        android:id="@+id/yijing"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:checked="true"
-        android:text="五险一金"
-        android:layout_below="@id/liangdian"
-        android:textSize="12sp" />
-    <CheckBox
-        android:id="@+id/jiaotong"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:checked="true"
-        android:layout_toRightOf="@id/yijing"
-        android:layout_alignTop="@id/yijing"
-        android:text="交通补贴"
-        android:textSize="12sp" />
-    <CheckBox
-        android:id="@+id/butie"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:checked="true"
-         android:layout_toRightOf="@id/jiaotong"
-         android:layout_alignTop="@id/jiaotong"
-        android:text="餐饮补贴"
-        android:textSize="12sp" />
-    <CheckBox
-        android:id="@+id/peixun"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:checked="true"
-        android:text="专业培训"
-        android:layout_below="@id/yijing"
-        android:textSize="12sp" />
-    <CheckBox
-        android:id="@+id/jiangjing"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:checked="true"
-        android:layout_toRightOf="@id/peixun"
-        android:layout_alignTop="@id/peixun"
-        android:text="年终奖金"
-        android:textSize="12sp" />
-    <CheckBox
-        android:id="@+id/lvyou"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:checked="true"
-         android:layout_toRightOf="@id/jiangjing"
-         android:layout_alignTop="@id/jiangjing"
-        android:text="员工旅游"
-        android:textSize="12sp" />
-    <View
-        android:layout_marginTop="10dp"
-        android:layout_width="fill_parent" 
-        android:layout_height="1dip" 
-        android:layout_below="@id/peixun"
-
-        android:background="#FF909090" /> 
-   </RelativeLayout>
-   <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="职位描述"
-        android:textColor="#0099FF"
-        android:textSize="18sp"/>
-
-</LinearLayout>
 </ScrollView>

@@ -100,6 +100,14 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 		InputStream in = getResources().openRawResource(R.drawable.profile);  
 		Bitmap bp = ImageUtil.getRoundBitmap(BitmapFactory.decodeStream(in));
 		iv_bottom.setImageBitmap(bp);
+		iv_bottom.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				intent2Activity(PersonMessageActivity.class);
+				
+			}
+		});
 		
 		lv = (ListView) findViewById(R.id.lv);
 		initMenu();
@@ -145,13 +153,11 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 		
 	}
 
-
-	
 	private void initMenu() {
 		
 		Menu menu1 = new Menu("我的好友");
 		Menu menu2 = new Menu("我的收藏");
-		Menu menu3 = new Menu("浏览历史");
+		Menu menu3 = new Menu("我的咨询");
 		Menu menu4 = new Menu("我的简历");
 		Menu menu5 = new Menu("退出应用");
 		
