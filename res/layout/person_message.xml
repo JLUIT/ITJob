@@ -106,7 +106,6 @@
                         android:layout_toRightOf="@+id/dcn_change_password_text"
                         android:layout_marginLeft="45dp"
                         android:gravity="center"
-                        android:text="Android开发"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -149,7 +148,6 @@
                         android:layout_marginLeft="45dp"
                         android:gravity="center"
                         android:layout_toRightOf="@+id/dcn_binding_phone_number_text"
-                        android:text="吉林大学"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -192,7 +190,6 @@
                         android:layout_toRightOf="@+id/dcn_set_security_question_text"
                         android:layout_marginLeft="45dp"
                         android:gravity="center"
-                        android:text="软件工程"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -242,7 +239,6 @@
                         android:layout_marginLeft="45dp"
                         android:gravity="center"
                         android:layout_toRightOf="@+id/dcn_set_payment_password_text"
-                        android:text="18844546466"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -284,7 +280,6 @@
                         android:layout_marginLeft="40dp"
                         android:gravity="center"
                         android:layout_toRightOf="@+id/email"
-                        android:text="1964316663@qq.com"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 

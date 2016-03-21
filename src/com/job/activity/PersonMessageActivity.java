@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +13,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.job.R;
 import com.job.base.BaseActivity;
@@ -30,13 +45,16 @@ public class PersonMessageActivity extends BaseActivity implements
 	Button cancel_btn;
 	private Dialog alertDialog;
 	private CropHelper crophelper;
-
+	private String result="";//从数据库获取的信息
+	private String getPhone,getEmail,getJob,getUniversity,getMajor;//从数据库获取的各项信息
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.person_message);
 		init();
+		Thread thread=new Thread(new InitialThread());
+		thread.start();
 	}
 
 	private void init() {
@@ -62,9 +80,91 @@ public class PersonMessageActivity extends BaseActivity implements
 		binding_email.setOnClickListener(this);
 		binding_tel.setOnClickListener(this);
 		btn_user.setOnClickListener(this);
-
 	}
 
+	Handler handler = new Handler()  
+    {  
+        public void handleMessage(Message msg)  
+        {  
+            switch(msg.what)  
+            {  
+            case 0:  
+            	Toast.makeText(getApplicationContext(), "网络错误", Toast.LENGTH_SHORT).show();
+            	break;
+            case 1:
+            	try {
+            		String s=result;
+					JSONObject view=new JSONObject(s);
+					getPhone=view.getString("phoneNumber");
+					tel.setText(getPhone);
+					getEmail=view.getString("email");
+					email.setText(getEmail);
+					getJob=view.getString("job");
+					my_job.setText(getJob);
+					getUniversity=view.getString("university");
+					my_school.setText(getUniversity);
+					getMajor=view.getString("major");
+					my_pro.setText(getMajor);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }   
+        }  
+    };  
+    
+    class InitialThread implements Runnable
+    {
+
+    	 @Override  
+         public void run() {  
+         	 StringBuilder url=new StringBuilder(LoginActivity.URL+"InfoManager");
+         	 String type="p";//个人
+         	 url.append("?");
+         	 url.append("type=");
+         	 url.append(type);
+         	 url.append("&");
+         	 url.append("username=");
+         	 try {
+ 				url.append(URLEncoder.encode(LoginActivity.name,"UTF-8"));
+ 			} catch (UnsupportedEncodingException e1) {
+ 				// TODO Auto-generated catch block
+ 				e1.printStackTrace();
+ 			} 
+  	        HttpURLConnection conn;
+  	        Message msg = handler.obtainMessage();
+ 			try {
+ 				conn = (HttpURLConnection)new URL(url.toString()).openConnection();
+ 				 conn.setConnectTimeout(5000);  
+ 		 	        conn.setRequestMethod("GET");  
+ 		 	        int code=conn.getResponseCode();
+ 		 	        if(code==200)  
+ 		            {  
+ 		 	        	BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+ 		 	        	String str;
+ 		 	        	while((str=rd.readLine())!=null)
+ 		 	        		result+=str;
+ 		 	        	rd.close();
+ 		 	        	if(result.equals(""))
+ 		 	        	{
+ 		 	        		msg.what=0;
+ 		 	            	handler.sendMessage(msg);	 
+ 		 	        	}
+ 		 	        	else{
+ 		 	        		msg.what=1;
+ 		 	            	handler.sendMessage(msg);
+ 		 	        	}
+ 		            }
+ 			} catch (MalformedURLException e) {
+ 				// TODO Auto-generated catch block
+ 				e.printStackTrace();
+ 			} catch (IOException e) {
+ 				// TODO Auto-generated catch block
+ 				e.printStackTrace();
+ 			}  
+         }  
+    }
+    
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -93,11 +193,6 @@ public class PersonMessageActivity extends BaseActivity implements
 			break;
 
 		}
-	}
-
-	private void choose_pro() {
-		// TODO Auto-generated method stub
-		intent2Activity(ChooseProActivity.class);
 	}
 
 	private void choose_img() {
@@ -180,13 +275,17 @@ public class PersonMessageActivity extends BaseActivity implements
 	}
 
 	private void change_phone() {
-		intent2Activity(CompanyBindPhoneActivity.class);
-
+		Intent intent=new Intent();
+		intent.setClass(PersonMessageActivity.this, CompanyBindPhoneActivity.class);
+		intent.putExtra("phone", getPhone);
+		startActivity(intent);
 	}
 
 	private void change_email() {
-		intent2Activity(CompanyBindEmailActivity.class);
-
+		Intent intent=new Intent();
+		intent.setClass(PersonMessageActivity.this, CompanyBindEmailActivity.class);
+		intent.putExtra("email", getEmail);
+		startActivity(intent);
 	}
 
 	private void change_pwd() {
@@ -194,12 +293,24 @@ public class PersonMessageActivity extends BaseActivity implements
 	}
 
 	private void chosse_job() {
-		intent2Activity(JobNameActivity.class);
+		Intent intent=new Intent();
+		intent.setClass(PersonMessageActivity.this, JobNameActivity.class);
+		intent.putExtra("job", getJob);
+		startActivity(intent);
 	}
-
+	
+	private void choose_pro() {
+		Intent intent=new Intent();
+		intent.setClass(PersonMessageActivity.this, ChooseProActivity.class);
+		intent.putExtra("major", getMajor);
+		startActivity(intent);
+	}
+	
 	private void choose_college() {
-		intent2Activity(CollegeChooseActivity.class);
-
+		Intent intent=new Intent();
+		intent.setClass(PersonMessageActivity.this, CollegeChooseActivity.class);
+		intent.putExtra("university", getUniversity);
+		startActivity(intent);
 	}
 
 }

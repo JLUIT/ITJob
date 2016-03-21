@@ -68,7 +68,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	private String type="";//登录类型 0  个人，1  公司
 	public static String name="";
 	public static String pass="";
-	public static String URL="http://10.151.121.182:8080/IT/";
+	public static String URL="http://10.151.162.204:8080/IT/";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
