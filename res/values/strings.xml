@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="name">姓名</string>
-    <string name="sex">性别</string>
-    <string name="birthday">出生年份</string>
-    <string name="work_exp">工作年限</string>
-    <string name="student_exp">学历</string>
-    <string name="incity">现居住城市</string>
-    <string name="birth_address">籍贯</string>
+    <string name="name">姓名*</string>
+    <string name="sex">性别*</string>
+    <string name="birthday">出生年份*</string>
+    <string name="work_exp">工作年限*</string>
+    <string name="student_exp">学历*</string>
+    <string name="incity">现居住城市*</string>
+    <string name="birth_address">籍贯*</string>
     <string name="app_name">IT职业联盟</string>
     <string name="remember_password">记住密码</string>
     <string name="login">登 录</string>
@@ -103,7 +103,7 @@
     <string name="input_email">请输入邮箱</string>
     <string name="conbine_phone">绑定手机</string>
     <string name="resume_email">邮箱</string>
-    <string name="tel">电话号码</string>
+    <string name="tel">电话号码*</string>
     <string name="edit_password">修改密码</string>
     <string name="college">就读大学</string>
     <string name="pro_hint">请输入就读专业</string>

@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:fadingEdge="vertical"
-    android:scrollbars="vertical" >
+    android:scrollbars="none"
+     >
 
     <LinearLayout
         android:id="@+id/main"
@@ -68,7 +69,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="李武超"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -100,7 +100,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="男"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -133,7 +132,6 @@
                     android:layout_marginLeft="115dp"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:text="1999年8月15日"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -178,7 +176,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="1931200124@qq.com"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -210,7 +207,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="广州"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -242,7 +238,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="本科"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -274,7 +269,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="18844546466"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -306,7 +300,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="4年"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -338,7 +331,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="广州"
                     android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>
@@ -352,41 +344,18 @@
             android:orientation="vertical"
             android:padding="0dp" >
 
-            <RelativeLayout
-                android:id="@+id/introduction"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/dcn_back_btn_selector"
-                android:clickable="true" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:gravity="center"
-                    android:paddingLeft="16dip"
-                    android:text="自我介绍"
-                    android:textColor="@color/dcn_light_black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="115dp"
-                    android:gravity="center"
-                    android:hint="介绍一下自己把"
-                    android:textColor="@color/dcn_light_black"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/dcn_right_arrow" />
-            </RelativeLayout>
+            <EditText 
+            android:id="@+id/introduction"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:gravity="top"
+            android:padding="7dp"
+            android:scrollbars="vertical"
+            android:hint="@string/introduction_indetail"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:background="@drawable/dcn_login_box_bg"
+            android:layout_height="123dp" />
         </LinearLayout>
     </LinearLayout>
 
