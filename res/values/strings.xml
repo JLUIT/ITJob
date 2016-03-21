@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="name">姓名</string>
+    <string name="sex">性别</string>
+    <string name="birthday">出生年份</string>
+    <string name="work_exp">工作年限</string>
+    <string name="student_exp">学历</string>
+    <string name="incity">现居住城市</string>
+    <string name="birth_address">籍贯</string>
     <string name="app_name">IT职业联盟</string>
     <string name="remember_password">记住密码</string>
     <string name="login">登 录</string>
@@ -17,12 +24,16 @@
     <string name="btn_next">下一步</string>
     <string name="job_name">职位名称</string>
     <string name="salary">工作薪资：</string>
+    <string name="my_resume">我的简历</string>
+    <string name="introduction">自我介绍</string>
     <string name="person_center">个人中心</string>
     <string name="confirm_password">请确认密码</string>
     <string name="school_hint">请输入就读大学</string>
+    <string name="introduction_in">请简单介绍一下自己</string>
     <string name="in_salary">请输入薪资</string>
     <string name="low_salary">最低薪资</string>
     <string name="province">省份</string>
+    <string name="resume_manage">简历管理</string>
     <string name="high_salary">最高薪资</string>
     <string name="company_naturl">公司性质</string>
     <string name="company_naturl1">公司性质：</string>
@@ -81,13 +92,18 @@
     <string name="send">发布</string>
     <string name="kilometer">km2</string>
     <string name="people">人</string>
+    <string name="apply_job">已申请岗位（已回复）</string>
+    <string name="inapply_job">已申请岗位（未回复）</string>
     <string name="k">k</string>
     <string name="save">保存</string>
     <string name="file_manage">简历管理</string>
     <string name="job_describe_indetail">请输入该职位的简要描述(不超过200字)</string>
+    <string name="introduction_indetail">请介绍一下自己(不超过200字)</string>
     <string name="conbine_email">绑定邮箱</string>
     <string name="input_email">请输入邮箱</string>
     <string name="conbine_phone">绑定手机</string>
+    <string name="resume_email">邮箱</string>
+    <string name="tel">电话号码</string>
     <string name="edit_password">修改密码</string>
     <string name="college">就读大学</string>
     <string name="pro_hint">请输入就读专业</string>

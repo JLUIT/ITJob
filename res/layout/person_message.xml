@@ -83,7 +83,7 @@
                 android:padding="0dp" >
 
                 <RelativeLayout
-                    android:id="@+id/chosse_job"
+                    android:id="@+id/apply_job"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
@@ -126,7 +126,7 @@
                     android:background="@color/dcn_color_login_box_gb" />
 
                 <RelativeLayout
-                    android:id="@+id/choose_college"
+                    android:id="@+id/inapply_job"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
@@ -169,7 +169,7 @@
                     android:background="@color/dcn_color_login_box_gb" />
 
                 <RelativeLayout
-                    android:id="@+id/chosse_pro"
+                    android:id="@+id/resume"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/dcn_back_btn_selector"
