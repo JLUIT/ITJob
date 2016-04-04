@@ -43,7 +43,6 @@
                 android:text="@string/apply_job"
                 android:textSize="14sp" />
 
-            
 
             <ImageView
                 android:id="@+id/dcn_right_arrow_image3"

@@ -1,322 +1,355 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:fadingEdge="vertical"
-    android:scrollbars="vertical" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="13" >
 
-    <LinearLayout
+    <com.job.view.BackLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
-        <com.job.view.BackLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="咨 询 信 息"
+            android:textColor="@color/whites"
+            android:textSize="20sp" />
+    </com.job.view.BackLayout>
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        android:background="@color/grays"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="公司的所有职位"
+            android:id="@+id/company_job" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="15dp"
-                android:text="咨 询 信 息"
-                android:textColor="@color/whites"
-                android:textSize="20sp" />
-        </com.job.view.BackLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="公司风采"
+            android:id="@+id/company_style" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:fadingEdge="vertical"
+        android:scrollbars="none" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="7dp" >
+            android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="软件构架师"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="百度有限公司"
-                android:textSize="18sp" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:gravity="right"
-                android:text="2015-10-12"
-                android:textColor="#999999"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="7dp" >
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="软件构架师"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:id="@+id/job_name" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="杭州"
-                android:textColor="#999999"
-                android:textSize="15sp" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:gravity="right"
-                android:text="7000-9000元/月"
-                android:textColor="#FF0033"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <View
-            android:id="@+id/xuxian"
-            android:layout_width="fill_parent"
-            android:layout_height="1dip"
-            android:layout_marginTop="10dp"
-            android:background="#FF909090" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="12" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="招聘人数"
-                    android:textColor="#999999"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:text="10"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dip"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="#999999" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="学历要求"
-                    android:textColor="#999999"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:text="研究生"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dip"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="#999999" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="公司性质"
-                    android:textColor="#999999"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:text="私营"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dip"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="#999999" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="公司规模"
-                    android:textColor="#999999"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:text="13000"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dip"
-            android:background="#FF909090" />
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/liangdian"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="薪资福利"
-                android:textColor="#0099FF"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:id="@+id/liangdian1"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/liangdian"
-                android:orientation="horizontal"
-                android:weightSum="9" >
+                android:orientation="horizontal" >
 
-                <CheckBox
-                    android:id="@+id/yijing"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:checked="true"
-              
-                    android:text="五险一金"
-                    android:textSize="12sp" />
+                    android:text="百度有限公司"
+                    android:textSize="18sp"
+                    android:id="@+id/company_name" />
 
-                <CheckBox
-                    android:id="@+id/jiaotong"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    
-                    android:checked="true"
-                    android:text="交通补贴"
-                    android:textSize="12sp" />
-
-                <CheckBox
-                    android:id="@+id/butie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    
-                    android:checked="true"
-                    android:text="餐饮补贴"
-                    android:textSize="12sp" />
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:text="2015-10-12"
+                    android:textColor="#999999"
+                    android:textSize="12sp"
+                    android:id="@+id/send_date" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/liangdian2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_below="@id/liangdian1"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="杭州"
+                    android:textColor="#999999"
+                    android:textSize="15sp"
+                    android:id="@+id/site" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:text="7000-9000元/月"
+                    android:textColor="#FF0033"
+                    android:textSize="15sp"
+                    android:id="@+id/salary" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/xuxian"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_marginTop="10dp"
+                android:background="#FF909090" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="9" >
+                android:weightSum="12" >
 
-                <CheckBox
-                    android:id="@+id/peixun"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    
-                    android:checked="true"
-                    android:text="专业培训"
-                    android:textSize="12sp" />
+                    android:orientation="vertical" >
 
-                <CheckBox
-                    android:id="@+id/jiangjing"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="招聘人数"
+                        android:textColor="#999999"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:text="10"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:id="@+id/apply_num" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#999999" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    
-                    android:checked="true"
-                    android:text="年终奖金"
-                    android:textSize="12sp" />
+                    android:orientation="vertical" >
 
-                <CheckBox
-                    android:id="@+id/lvyou"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/stu_exp"
+                        android:textColor="#999999"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:text="研究生"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:id="@+id/stu_exp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#999999" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    
-                    android:checked="true"
-                    android:text="员工旅游"
-                    android:textSize="12sp" />
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/company_naturl"
+                        android:textColor="#999999"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:text="私营"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:id="@+id/company_natural" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#999999" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="公司规模"
+                        android:textColor="#999999"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:text="13000"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:id="@+id/company_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#FF909090" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/liangdian"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/salary_fuli"
+                    android:textColor="#0099FF"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:id="@+id/liangdian1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/liangdian"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="9" >
+
+                    <CheckBox
+                        android:id="@+id/insurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:checked="true"
+                        android:text="@string/five_one"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/jiaotong"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:checked="true"
+                        android:text="@string/transtation_butie"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/butie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:checked="true"
+                        android:text="@string/restaurant"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/liangdian2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/liangdian1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="9" >
+
+                    <CheckBox
+                        android:id="@+id/peixun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:checked="true"
+                        android:text="   专业培训"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/jiangjing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:checked="true"
+                        android:text="@string/year"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/lvyou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:checked="true"
+                        android:text="@string/mem_trip"
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <View
@@ -325,17 +358,79 @@
                     android:layout_below="@id/liangdian2"
                     android:layout_marginTop="10dp"
                     android:background="#FF909090" />
-    
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/job_describe1"
+                android:textColor="#0099FF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="1.根据各项目提供的需求抽样、回归产品的需求和功能设计;"
+                android:textSize="15sp"
+                android:id="@+id/job_detail1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="2.根据产品需求做产品的技术架构设计，数据架构设计;"
+                android:textSize="15sp"
+                android:id="@+id/job_detail2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="2.根据产品需求做产品的技术架构设计，数据架构设计;"
+                android:textSize="15sp"
+                android:id="@+id/job_detail3" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <Button
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="职位描述"
-            android:textColor="#0099FF"
-            android:textSize="18sp" />
+            android:layout_weight="1"
+            android:text="@string/conduct"
+            android:id="@+id/consult" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/collect"
+            android:id="@+id/collect" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/applyjob"
+            android:id="@+id/apply_job" />
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

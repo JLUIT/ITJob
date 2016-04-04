@@ -1,24 +1,27 @@
 package com.job.activity;
 
-import com.job.view.PullToRefreshBase.State;
-import com.job.view.SoundPullEventListener;
 import java.util.ArrayList;
 import java.util.List;
-import com.job.view.PullToRefreshBase.OnRefreshListener2;
-import com.job.R;
-import com.job.adapter.CompanyAdapter;
-import com.job.base.BaseActivity;
-import com.job.bean.CompanyMsg;
-import com.job.view.PullToRefreshBase;
-import com.job.view.PullToRefreshListView;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
+import com.job.R;
+import com.job.adapter.CompanyAdapter;
+import com.job.base.BaseActivity;
+import com.job.bean.CompanyMsg;
+import com.job.view.PullToRefreshBase;
+import com.job.view.PullToRefreshBase.OnRefreshListener2;
+import com.job.view.PullToRefreshBase.State;
+import com.job.view.PullToRefreshListView;
+import com.job.view.SoundPullEventListener;
 
 public class CompanyApplyActivity extends BaseActivity {
 
@@ -50,12 +53,22 @@ public class CompanyApplyActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 
-				intent2Activity(ApplyMessageActivity.class);
+				intent2Activity(Publishinfor.class);
 			
 			}
 		});
 		 
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
+		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				
+				
+			}
+			
+		});
 		// Set a listener to be invoked when the list should be refreshed.
 		
 				mPullRefreshListView

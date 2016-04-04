@@ -119,15 +119,14 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				//我的好友
 				if(position == 0){
-					
+					intent2Activity(MyFriendActivity.class);
 				}
 				
 				//我的收藏
 				if(position == 1){
-					intent2Activity(CompanyApplyActivity.class);
 				}
 				
-				//浏览历史
+				//我的咨询
 				if(position == 2){
 					
 				}

@@ -44,8 +44,7 @@ public class CompanyMessageActivity extends BaseActivity implements
 		crophelper = new CropHelper(this, OSUtils.getSdCardDirectory()
 				+ "/head.png");
 		company_name = (TextView) findViewById(R.id.comapny_name);
-		message = (RelativeLayout) findViewById(R.id.message_center);
-		record = (RelativeLayout) findViewById(R.id.conduct_record);
+		
 		change_pwd = (RelativeLayout) findViewById(R.id.change_password);
 		binding_tel = (RelativeLayout) findViewById(R.id.binding_phone_number);
 		binding_email = (RelativeLayout) findViewById(R.id.binding_email);
@@ -63,13 +62,7 @@ public class CompanyMessageActivity extends BaseActivity implements
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.message_center:
-			find_message();
-			break;
-
-		case R.id.conduct_record:
-			find_record();
-			break;
+	
 
 		case R.id.change_password:
 			edit_pwd();
@@ -186,12 +179,5 @@ public class CompanyMessageActivity extends BaseActivity implements
 		intent2Activity(CompanyChangePassWordActivity.class);
 	}
 
-	private void find_record() {
-
-	}
-
-	private void find_message() {
-
-	}
 
 }

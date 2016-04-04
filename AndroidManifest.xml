@@ -6,7 +6,8 @@
 
     <uses-sdk
         android:minSdkVersion="13"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="23" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
     </uses-permission>
@@ -19,7 +20,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.StartActivity">
+            android:name=".activity.StartActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +30,15 @@
         </activity>
         <activity android:name=".activity.ConsultActivity" >
         </activity>
-        <activity android:name=".activity.PersonActivity" >
+        <activity android:name=".activity.CompanyActivity" >
         </activity>
-        
         <activity android:name=".activity.CropImage" >
+        </activity>
+        <activity android:name=".activity.FriendIndexActivity" >
+        </activity>
+        <activity android:name=".activity.ShareContentActivity" >
+        </activity>
+        <activity android:name=".activity.CompanyIndexActivity" >
         </activity>
         <activity android:name=".activity.MonitoredActivity" >
         </activity>
@@ -47,15 +54,19 @@
         </activity>
         <activity android:name=".activity.FilterJobActivity" >
         </activity>
+        <activity android:name=".activity.PersonActivity" >
+        </activity>
         <activity android:name=".activity.CollegeChooseActivity" >
         </activity>
         <activity android:name=".activity.JobInforAcitivity" >
         </activity>
-        <activity android:name=".activity.CompanyActivity" >
+        <activity android:name=".activity.Publishinfor" >
         </activity>
         <activity android:name=".activity.CompanyApplyActivity" >
         </activity>
         <activity android:name=".activity.LoginActivity" >
+        </activity>
+        <activity android:name=".activity.CollectActivity" >
         </activity>
         <activity android:name=".activity.RegisterPersonActivity" >
         </activity>
@@ -85,11 +96,15 @@
         </activity>
         <activity android:name=".activity.SalaryFuliActity" >
         </activity>
+        <activity android:name=".activity.MyFriendActivity" >
+        </activity>
         <activity android:name=".activity.StudyExperienceActivity" >
         </activity>
         <activity android:name=".activity.JobSiteActivity" >
         </activity>
         <activity android:name=".activity.CompanyNumberActivity" >
+        </activity>
+        <activity android:name=".activity.SearchFriendActivity" >
         </activity>
     </application>
 

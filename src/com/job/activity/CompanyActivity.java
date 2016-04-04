@@ -38,7 +38,6 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 	private DragLayout dl; 
 	private ListView lv;
 	private ImageView iv_icon,iv_bottom;
-	
 	private ConsultFragment consultFragment;
 	private ContactFragment contactsFragment;
 	private SchoolFragment schoolFragment;
@@ -129,7 +128,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener{
 				
 				//我的收藏
 				if(position == 2){
-					
+					intent2Activity(CollectActivity.class);
 				}
 				
 				//退出应用

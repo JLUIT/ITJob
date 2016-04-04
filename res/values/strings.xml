@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="name">姓名*</string>
-    <string name="sex">性别*</string>
-    <string name="birthday">出生年份*</string>
-    <string name="work_exp">工作年限*</string>
-    <string name="student_exp">学历*</string>
-    <string name="incity">现居住城市*</string>
-    <string name="birth_address">籍贯*</string>
+    <string name="name">姓名</string>
+    <string name="cname">公司名称</string>
+    <string name="sex">性别</string>
+    <string name="birthday">出生年份</string>
+    <string name="work_exp">工作年限</string>
+    <string name="student_exp">学历</string>
+    <string name="incity">现居住城市</string>
+    <string name="birth_address">籍贯</string>
     <string name="app_name">IT职业联盟</string>
     <string name="remember_password">记住密码</string>
     <string name="login">登 录</string>
     <string name="register">新用户</string>
+    <string name="cpy_name">公司名称：</string>
     <string name="registercompany">新公司</string>
     <string name="message">招聘信息</string>
     <string name="et_phoneNumber_hint">请输入你的手机号码</string>
     <string name="forgetpassword">忘记密码?</string>
+    <string name="search_friend">查找校友</string>
+    <string name="search">搜索</string>
     <string name="check_confirm_password">请重新确认密码</string>
     <string name="school">校企天地</string>
     <string name="tv_country">中国+86</string>
     <string name="title_phoneNumber">请填写手机号码</string>
+    <string name="friend">我的好友</string>
     <string name="change_phoneNumber">换绑手机号码</string>
     <string name="btn_next">下一步</string>
     <string name="job_name">职位名称</string>
@@ -49,19 +54,20 @@
     <string name="in_job_name">请输入职位名称</string>
     <string name="study_experience">学历</string>
     <string name="salary_fuli">薪资福利</string>
-    <string name="five_one">五险一金</string>
-    <string name="transtation_butie">交通补贴</string>
-    <string name="expert_train">专业培训</string>
+    <string name="five_one">   五险一金</string>
+    <string name="transtation_butie">   交通补贴</string>
+    <string name="expert_train">   专业培训</string>
     <string name="year_money">年终奖金</string>
-    <string name="restaurant">餐饮补贴</string>
+    <string name="restaurant">   餐饮补贴</string>
     <string name="member_trip">员工旅游</string>
     <string name="job_describe">职位描述</string>
     <string name="job_describe_detail">岗位描述(可空)</string>
-    <string name="stu_exp">学历要求：</string>
+    <string name="stu_exp">学历要求</string>
     <string name="send_date">发布日期：</string>
     <string name="filter">筛  选</string>
     <string name="job_point">工作地点</string>
     <string name="change_email">换绑邮箱</string>
+    <string name="person_pro">个人资料</string>
     <string name="tv_xieyi">我已阅读并同意</string>
     <string name="person_name">请输入你的用户名</string>
     <string name="company_name">请输入你的公司名</string>
@@ -75,6 +81,9 @@
     <string name="phone_num">电话号码</string>
     <string name="email_add">邮箱地址</string>
     <string name="guide">指南</string>
+    <string name="send_msg">信 息 发 布</string>
+    <string name="job_ne">职位名称：   薪资/月：</string>
+    <string name="salary_mon">   薪资/月：</string>
     <string name="tv_tips_name">建议填写你的真实姓名,让你的朋友更容易人出你,此昵称以后可以随时修改</string>
     <string name="tv_tips_password">密码由6-16位数字,字母或符号组成,不能是9位一下纯数字组成</string>
     <string name="setting">设置</string>
@@ -88,6 +97,8 @@
     <string name="change_password">修改密码</string>
     <string name="pchange_password">请修改您的密码:</string>
     <string name="company_style">公司风采</string>
+    <string name="company_site">公司地址</string>
+    <string name="company_introduce">公司简介</string>
     <string name="conduct">咨询</string>
     <string name="send">发布</string>
     <string name="kilometer">km2</string>
@@ -103,16 +114,21 @@
     <string name="input_email">请输入邮箱</string>
     <string name="conbine_phone">绑定手机</string>
     <string name="resume_email">邮箱</string>
-    <string name="tel">电话号码*</string>
+    <string name="tel">电话号码</string>
     <string name="edit_password">修改密码</string>
     <string name="college">就读大学</string>
+    <string name="collect">收藏</string>
+    <string name="mycollect">我的收藏</string>
     <string name="pro_hint">请输入就读专业</string>
     <string name="profession">就读专业</string>
     <string name="input_old_pwd">请输入原密码</string>
     <string name="input_new_pwd">请输入新密码</string>
+    <string name="mem_trip">   员工旅游</string>
+    <string name="year">   年终奖金</string>
     <string name="message_center">消息中心</string>
     <string name="conduct_record">咨询记录</string>
     <string name="about_company">关于公司</string>
+    <string name="applyjob">申请职位</string>
     <string name="combine">已绑定</string>
     <string name="specialize_student">专科生</string>
     <string name="undergraduates">本科生</string>
@@ -127,5 +143,8 @@
     <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
     <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
     <string name="city">城市</string>
+    <string name="job_describe1">职位描述</string>
+    <string name="job">职位</string>
+    <string name="share">分享</string>
 
 </resources>
