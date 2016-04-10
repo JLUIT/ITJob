@@ -33,7 +33,6 @@
             android:id="@+id/dcn_user_image"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/user"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="12dp"
@@ -146,7 +145,6 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="25dip"
-                        android:text="@string/combine"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -190,7 +188,6 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="25dip"
-                        android:text="@string/combine"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 

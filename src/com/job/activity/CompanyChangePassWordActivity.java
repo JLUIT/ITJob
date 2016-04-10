@@ -31,6 +31,7 @@ public class CompanyChangePassWordActivity extends BaseActivity {
 	private EditText edit_old_pwd, edit_new_pwd, edit_confirm_pwd;
 	private Button finish_btn;
 	private String oldPass,newPass,confirmPass;
+	private String P_E="";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -107,7 +108,10 @@ public class CompanyChangePassWordActivity extends BaseActivity {
             	break;
             case 4:
             	Toast.makeText(getApplicationContext(), "修改成功", Toast.LENGTH_SHORT).show();
-            	intent2Activity(PersonMessageActivity.class);
+            	if(P_E.equals("P"))
+            		intent2Activity(PersonMessageActivity.class);
+            	else 
+            		intent2Activity(CompanyMessageActivity.class);
             	break;
             case 5:
             	Toast.makeText(getApplicationContext(), "旧密码错误", Toast.LENGTH_SHORT).show();
@@ -130,7 +134,7 @@ public class CompanyChangePassWordActivity extends BaseActivity {
 			JSONObject object=new JSONObject();
 			try {
 				object.put("type", true);//非密码修改
-				object.put("P_E", "P");//个人
+				object.put("P_E", "E");//公司
 				object.put("which", "password");//修改电话
 				object.put("name", LoginActivity.name);
 				object.put("oldPassword", oldPass);

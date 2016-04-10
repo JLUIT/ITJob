@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="name">姓名</string>
+     <string name="name">姓名</string>
     <string name="cname">公司名称</string>
     <string name="sex">性别</string>
     <string name="birthday">出生年份</string>
@@ -11,7 +11,14 @@
     <string name="birth_address">籍贯</string>
     <string name="app_name">IT职业联盟</string>
     <string name="remember_password">记住密码</string>
+    <string name="job_msg">就业统计信息</string>
     <string name="login">登 录</string>
+     <string name="enterprise_de">企业职位要求</string>
+    <string name="res_st">简历攻略</string>
+    <string name="school_job">校园招聘</string>
+    <string name="int_st">面试攻略</string>
+    <string name="job_st">就业环境</string>
+    <string name="lab_st">劳动法苑</string>
     <string name="register">新用户</string>
     <string name="cpy_name">公司名称：</string>
     <string name="registercompany">新公司</string>
@@ -127,17 +134,20 @@
     <string name="year">   年终奖金</string>
     <string name="message_center">消息中心</string>
     <string name="conduct_record">咨询记录</string>
+    <string name="send_comment">发送</string>
+    <string name="reply">已回复</string>
+    <string name="unreply">未回复</string>
     <string name="about_company">关于公司</string>
     <string name="applyjob">申请职位</string>
     <string name="combine">已绑定</string>
     <string name="specialize_student">专科生</string>
     <string name="undergraduates">本科生</string>
     <string name="research_student">研究生</string>
-    <string name="dcn_register_password_digits">      (6-16位，数字、字母)</string>
+    <string name="dcn_register_password_digits">      (6-16位，数字、字母)
+</string>
     <string name="pull_to_refresh_pull_label">下拉刷新</string>
     <string name="pull_to_refresh_release_label">释放开始刷新</string>
     <string name="pull_to_refresh_refreshing_label">加载中…</string>
-
     <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
     <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
     <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
@@ -146,5 +156,6 @@
     <string name="job_describe1">职位描述</string>
     <string name="job">职位</string>
     <string name="share">分享</string>
-
+    <string name="train">专业培训</string>
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
 </resources>

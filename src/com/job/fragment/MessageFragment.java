@@ -276,6 +276,7 @@ public class MessageFragment extends Fragment {
         intent.setClass(getActivity(), MessageActivity.class); 
         String content=province+" "+workCity+" "+salary+" "+property+" "+scope+" "+acaQualification+" "+dateTime;
         intent.putExtra("content", content);
+        intent.putExtra("type", "filter");//±Ì æ…∏—°
         startActivity(intent); 		
 	}
 }

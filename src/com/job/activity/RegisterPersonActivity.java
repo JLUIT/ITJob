@@ -62,35 +62,35 @@ public class RegisterPersonActivity extends BaseActivity {
             switch(msg.what)  
             {  
             case 0:  
-                Toast.makeText(getApplicationContext(), "×¢²á³É¹¦£¡", Toast.LENGTH_SHORT).show();  
+                Toast.makeText(getApplicationContext(), "æ³¨å†ŒæˆåŠŸï¼", Toast.LENGTH_SHORT).show();  
                 Intent intent = new Intent();  
                 intent.setClass(RegisterPersonActivity.this, LoginActivity.class);  
                 startActivity(intent);  
                 finish();  
                 break;  
             case -1:  
-                Toast.makeText(getApplicationContext(), "×¢²áĞÅÏ¢²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();  
+                Toast.makeText(getApplicationContext(), "ä¿¡æ¯ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();  
                 break;  
             case -2:
-            	Toast.makeText(getApplicationContext(), "ÍøÂçÁ¬½ÓÊ§°Ü",Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "ç½‘ç»œé”™è¯¯",Toast.LENGTH_SHORT).show();
             	break;
             case -3:
-            	Toast.makeText(getApplicationContext(), "Á½´ÎÃÜÂë²»Ò»ÖÂ£¡",Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´",Toast.LENGTH_SHORT).show();
             	break;
             case 1:
-            	Toast.makeText(getApplicationContext(), "ÓÃ»§ÃûÒÑ±»×¢²á",Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "ç”¨æˆ·åå·²è¢«æ³¨å†Œ",Toast.LENGTH_SHORT).show();
             	break;
             case 2:
-            	Toast.makeText(getApplicationContext(), "ÃÜÂë³¤¶È6-12Î»",Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "å¯†ç é•¿åº¦6-12ä½",Toast.LENGTH_SHORT).show();
             	break;
             case 5:
-            	Toast.makeText(getApplicationContext(), "ÓÊÏä¸ñÊ½²»ÕıÈ·",Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "é‚®ç®±æ ¼å¼ä¸æ­£ç¡®",Toast.LENGTH_SHORT).show();
             	break;
             case 6:
-            	Toast.makeText(getApplicationContext(), "ÓÊÏäÒÑ±»×¢²á",Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "é‚®ç®±å·²è¢«æ³¨å†Œ",Toast.LENGTH_SHORT).show();
             	break;
             case 7:
-            	Toast.makeText(getApplicationContext(), "×¢²áÊ§°Ü",Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "æ³¨å†Œå¤±è´¥",Toast.LENGTH_SHORT).show();
             }  
               
         }  

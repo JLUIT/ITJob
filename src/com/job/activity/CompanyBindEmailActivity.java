@@ -30,7 +30,7 @@ public class CompanyBindEmailActivity extends BaseActivity {
 
 	private EditText emailText;
 	private TextView save;
-	private String Email="";
+	private String Email="",P_E;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,6 +55,7 @@ public class CompanyBindEmailActivity extends BaseActivity {
 	protected void save_email() {
 		Intent intent=getIntent();
 		String oldEmail=intent.getStringExtra("email");
+		P_E=intent.getStringExtra("P_E");
 		Email=emailText.getText().toString().trim();
 		Message msg = handler.obtainMessage();
 		if(Email.equals(""))
@@ -94,7 +95,10 @@ public class CompanyBindEmailActivity extends BaseActivity {
             	break;
             case 4:
             	Toast.makeText(getApplicationContext(), "修改成功", Toast.LENGTH_SHORT).show();
-            	intent2Activity(PersonMessageActivity.class);
+            	if(P_E.equals("P"))
+            		intent2Activity(PersonMessageActivity.class);
+            	else 
+            		intent2Activity(CompanyMessageActivity.class);
             	break;
             case 5:
             	Toast.makeText(getApplicationContext(), "与原邮箱相同", Toast.LENGTH_SHORT).show();
@@ -114,7 +118,7 @@ public class CompanyBindEmailActivity extends BaseActivity {
 			JSONObject object=new JSONObject();
 			try {
 				object.put("type", false);//非密码修改
-				object.put("P_E", "P");//个人
+				object.put("P_E", "E");//公司
 				object.put("which", "email");//修改邮箱
 				object.put("name", LoginActivity.name);
 				object.put("email", Email);

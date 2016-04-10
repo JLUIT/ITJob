@@ -28,7 +28,7 @@ public class CompanyBindPhoneActivity extends BaseActivity {
 
 	private EditText phone;
 	private Button finish_btn;
-	private String Phone="";
+	private String Phone="",P_E;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,6 +54,7 @@ public class CompanyBindPhoneActivity extends BaseActivity {
 	protected void save_phone() {
 		Intent intent=getIntent();
 		String phoneNum=intent.getStringExtra("phone");
+		P_E=intent.getStringExtra("P_E");
 		Phone=phone.getText().toString().trim();
 		Message msg = handler.obtainMessage();
 		if(phone.equals(""))
@@ -93,7 +94,10 @@ public class CompanyBindPhoneActivity extends BaseActivity {
             	break;
             case 4:
             	Toast.makeText(getApplicationContext(), "修改成功", Toast.LENGTH_SHORT).show();
-            	intent2Activity(PersonMessageActivity.class);
+            	if(P_E.equals("P"))
+            		intent2Activity(PersonMessageActivity.class);
+            	else 
+            		intent2Activity(CompanyMessageActivity.class);
             	break;
             case 5:
             	Toast.makeText(getApplicationContext(), "与原电话号码相同", Toast.LENGTH_SHORT).show();
@@ -113,7 +117,7 @@ public class CompanyBindPhoneActivity extends BaseActivity {
 			JSONObject object=new JSONObject();
 			try {
 				object.put("type", false);//非密码修改
-				object.put("P_E", "P");//个人
+				object.put("P_E", "E");//公司
 				object.put("which", "phone");//修改电话
 				object.put("name", LoginActivity.name);
 				object.put("phone", Phone);

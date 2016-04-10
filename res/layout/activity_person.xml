@@ -2,7 +2,7 @@
     android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menu_background" >
+    android:background="@drawable/bg6" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,34 +34,12 @@
                 android:textSize="25sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/set"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="6dp"
-                android:src="@drawable/setting" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:paddingLeft="6dp"
-                android:text="@string/setting"
-                android:textColor="#ffffff"
-                android:textSize="15sp" />
-        </LinearLayout>
+        
 
         <ListView
             android:id="@+id/lv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/set"
             android:layout_below="@id/ll1"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="60dp"

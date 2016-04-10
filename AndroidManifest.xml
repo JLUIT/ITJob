@@ -28,9 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ConsultActivity" >
+        <activity android:name=".activity.JobRequireActivity" >
         </activity>
-        <activity android:name=".activity.CompanyActivity" >
+        <activity android:name=".activity.PersonActivity" >
+        </activity>
+        <activity android:name=".activity.ConsultActivity" >
         </activity>
         <activity android:name=".activity.CropImage" >
         </activity>
@@ -42,11 +44,37 @@
         </activity>
         <activity android:name=".activity.MonitoredActivity" >
         </activity>
+        <activity android:name=".activity.InterviewHelpActivity" >
+        </activity>
         <activity android:name=".activity.MessageActivity" >
         </activity>
         <activity android:name=".activity.ChooseProActivity" >
         </activity>
         <activity android:name=".activity.CompanyMessageActivity" >
+        </activity>
+        <activity android:name=".activity.LabourRuleActivity" >
+        </activity>
+        <activity android:name=".activity.SchoolRecruitActivity" >
+        </activity>
+        <activity android:name=".activity.PeopleNeedActivity" >
+        </activity>
+        <activity android:name=".activity.SchoolEnterpriseActivity" >
+        </activity>
+        <activity android:name=".activity.CompanyRecruitActivity" >
+        </activity>
+        <activity android:name=".activity.ConcreteRequireActivity" >
+        </activity>
+        <activity android:name=".activity.ConcrectSchoolRecruitActivity" >
+        </activity>
+        <activity android:name=".activity.SchoolInformActivity" >
+        </activity>
+        <activity android:name=".activity.ConcrectPeopleRequireActivity" >
+        </activity>
+        <activity android:name=".activity.JobEnvironmentActivity" >
+        </activity>
+        <activity android:name=".activity.ManageResumeActivity" >
+        </activity>
+        <activity android:name=".activity.IteminforActivity" >
         </activity>
         <activity android:name=".activity.IntroductionActivity" >
         </activity>
@@ -54,7 +82,7 @@
         </activity>
         <activity android:name=".activity.FilterJobActivity" >
         </activity>
-        <activity android:name=".activity.PersonActivity" >
+        <activity android:name=".activity.LoginActivity" >
         </activity>
         <activity android:name=".activity.CollegeChooseActivity" >
         </activity>
@@ -64,9 +92,13 @@
         </activity>
         <activity android:name=".activity.CompanyApplyActivity" >
         </activity>
-        <activity android:name=".activity.LoginActivity" >
+        <activity android:name=".activity.CompanyActivity" >
         </activity>
         <activity android:name=".activity.CollectActivity" >
+        </activity>
+        <activity android:name=".activity.RusumeActivity" >
+        </activity>
+        <activity android:name=".activity.CollectCompanyActivity" >
         </activity>
         <activity android:name=".activity.RegisterPersonActivity" >
         </activity>

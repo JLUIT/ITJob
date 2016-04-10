@@ -3,9 +3,11 @@ package com.job.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,8 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -28,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.job.R;
+import com.job.activity.CompanyMessageActivity.SubmitThread;
 import com.job.base.BaseActivity;
 import com.job.util.CropHelper;
 import com.job.util.OSUtils;
@@ -46,7 +51,7 @@ public class PersonMessageActivity extends BaseActivity implements
 	private Dialog alertDialog;
 	private CropHelper crophelper;
 	private String result="";//从数据库获取的信息
-	private String getPhone,getEmail,getJob,getUniversity,getMajor;//从数据库获取的各项信息
+	private String getPhone,getEmail,getJob,getUniversity,getMajor,headPicture;//从数据库获取的各项信息
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -93,8 +98,7 @@ public class PersonMessageActivity extends BaseActivity implements
             	break;
             case 1:
             	try {
-            		String s=result;
-					JSONObject view=new JSONObject(s);
+					JSONObject view=new JSONObject(result);
 					getPhone=view.getString("phoneNumber");
 					tel.setText(getPhone);
 					getEmail=view.getString("email");
@@ -105,10 +109,24 @@ public class PersonMessageActivity extends BaseActivity implements
 					my_school.setText(getUniversity);
 					getMajor=view.getString("major");
 					my_pro.setText(getMajor);
+					String s=view.getString("headPicture");
+					if(s.equals(""))
+						btn_user.setImageResource(R.drawable.ic_launcher);
+					else
+					{
+						byte[] bytes = Base64.decode(view.getString("headPicture"), Base64.DEFAULT);
+						btn_user.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
+					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+            	break;
+            case 4:
+            	Toast.makeText(getApplicationContext(), "头像上传成功", Toast.LENGTH_SHORT).show();
+            	break;
+            case 6:
+            	Toast.makeText(getApplicationContext(), "头像上传失败", Toast.LENGTH_SHORT).show();
             }   
         }  
     };  
@@ -265,6 +283,7 @@ public class PersonMessageActivity extends BaseActivity implements
 							.getParcelableExtra("data"));
 					crophelper.savePhoto(data, OSUtils.getSdCardDirectory()
 							+ "/myHead.png");
+					edit_headPicture((Bitmap) data.getParcelableExtra("data"));//上传头像
 				}
 				break;
 			default:
@@ -313,4 +332,68 @@ public class PersonMessageActivity extends BaseActivity implements
 		startActivity(intent);
 	}
 
+	private void edit_headPicture(Bitmap bitmap) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();//将Bitmap转成Byte[]
+		bitmap.compress(Bitmap.CompressFormat.PNG, 50, baos);//压缩
+		headPicture =Base64.encodeToString(baos.toByteArray(),Base64.DEFAULT);//加密转换成String
+		int n=headPicture.length();
+		Thread submit=new Thread(new SubmitThread());
+		submit.start();
+	}
+	
+	class SubmitThread implements Runnable
+    {
+    	Message msg = handler.obtainMessage();
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			JSONObject object=new JSONObject();
+			try {
+				object.put("type", false);//非密码修改
+				object.put("P_E", "P");//非公司
+				object.put("which", "headPicture");//修改头像
+				object.put("name", LoginActivity.name);
+				object.put("headPicture", headPicture);
+				msg.what=Server(object);
+				handler.sendMessage(msg);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+    }
+    public int Server(JSONObject object)
+    {
+    	String path=LoginActivity.URL+"SetInfoManager";
+    	try{
+    		URL url=new URL(path);
+    		String content = String.valueOf(object);
+        	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        	conn.setConnectTimeout(5000);
+        	conn.setDoOutput(true);
+        	conn.setRequestMethod("POST");
+        	conn.setRequestProperty("User-Agent", "Fiddler");
+        	conn.setRequestProperty("Content-Type", "application/json");
+        	OutputStream os = conn.getOutputStream();
+        	os.write(content.getBytes());
+        	os.close();
+        	int code = conn.getResponseCode();
+        	if(code == 200)
+        	{
+        		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        		String result="";
+        		result = in.readLine();
+        		in.close();
+        		return Integer.parseInt(result);
+        	}
+        	else return 0;
+    	}catch (MalformedURLException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        } catch (IOException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+       } 
+    	return 0;
+    }
 }

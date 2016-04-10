@@ -22,10 +22,12 @@ import com.nineoldandroids.view.ViewHelper;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -57,6 +59,7 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 	private TextView schoolText;
 	private TextView guideText;
 	private FragmentManager fragmentManager;
+	private String headPicture="";
 	private List<Menu> menuList = new ArrayList<Menu>();
 	
 	@Override
@@ -64,6 +67,8 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_person);
+		Intent intent=getIntent();
+		headPicture=intent.getStringExtra("headPicture");
 		initDragLayout();
 		initView();
 		fragmentManager = getFragmentManager();
@@ -92,14 +97,30 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 		schoolLayout.setOnClickListener(this);
 		
 		iv_icon = (ImageView) findViewById(R.id.iv_icon);
-		InputStream is = getResources().openRawResource(R.drawable.profile);  
-		Bitmap bitmap = ImageUtil.getRoundBitmap(BitmapFactory.decodeStream(is));
-		iv_icon.setImageBitmap(bitmap);
+		if(headPicture.equals(""))
+		{
+			InputStream is = getResources().openRawResource(R.drawable.profile);  
+			Bitmap bitmap = ImageUtil.getRoundBitmap(BitmapFactory.decodeStream(is));
+			iv_icon.setImageBitmap(bitmap);
+		}
+		else
+		{
+			byte[] bytes = Base64.decode(headPicture, Base64.DEFAULT);
+			iv_icon.setImageBitmap(ImageUtil.getRoundBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.length)));
+		}
 
 		iv_bottom = (ImageView) findViewById(R.id.iv_bottom);
-		InputStream in = getResources().openRawResource(R.drawable.profile);  
-		Bitmap bp = ImageUtil.getRoundBitmap(BitmapFactory.decodeStream(in));
-		iv_bottom.setImageBitmap(bp);
+		if(headPicture.equals(""))
+		{
+			InputStream in = getResources().openRawResource(R.drawable.profile);  
+			Bitmap bp = ImageUtil.getRoundBitmap(BitmapFactory.decodeStream(in));
+			iv_bottom.setImageBitmap(bp);
+		}
+		else
+		{
+			byte[] bytes = Base64.decode(headPicture, Base64.DEFAULT);
+			iv_bottom.setImageBitmap(ImageUtil.getRoundBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.length)));
+		}
 		iv_bottom.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -124,6 +145,7 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 				
 				//我的收藏
 				if(position == 1){
+					intent2Activity(CollectActivity.class);
 				}
 				
 				//我的咨询
@@ -239,27 +261,28 @@ public class PersonActivity extends BaseActivity implements OnClickListener{
 					// 当点击了联系人tab时，改变控件的图片和文字颜色
 					contactsImage.setImageResource(R.drawable.contacts_selected);
 					contactsText.setTextColor(Color.WHITE);
-					if (contactsFragment == null) {
+					if (schoolFragment == null) {
 						// 如果ContactsFragment为空，则创建一个并添加到界面上
-						contactsFragment = new ContactFragment();
-						transaction.add(R.id.content, contactsFragment);
+
+						schoolFragment = new SchoolFragment();
+						transaction.add(R.id.content, schoolFragment);
 					} else {
 						// 如果ContactsFragment不为空，则直接将它显示出来
-						transaction.show(contactsFragment);
+						transaction.show(schoolFragment);
 					}
 					break;
 				case 2:
 					// 当点击了动态tab时，改变控件的图片和文字颜色
 					schoolImage.setImageResource(R.drawable.news_selected);
 					schoolText.setTextColor(Color.WHITE);
-					if (schoolFragment == null) {
+					if (contactsFragment == null) {
 						// 如果NewsFragment为空，则创建一个并添加到界面上
-						schoolFragment = new SchoolFragment();
-						transaction.add(R.id.content, schoolFragment);
+						contactsFragment = new ContactFragment();
+						transaction.add(R.id.content, contactsFragment);
 					} else {
 						// 如果NewsFragment不为空，则直接将它显示出来
-						transaction.show(schoolFragment);
-					} 	
+						transaction.show(contactsFragment);
+					}	
 					break;
 				case 3:
 				default:

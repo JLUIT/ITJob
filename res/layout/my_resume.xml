@@ -69,7 +69,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="李武超"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -101,7 +100,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="男"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -134,7 +132,6 @@
                     android:layout_marginLeft="115dp"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:text="1999年8月15日"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -179,7 +176,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="1931200124@qq.com"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -211,7 +207,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="广州"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -243,7 +238,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="本科"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -275,7 +269,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="18844546466"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -307,7 +300,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="4年"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -339,7 +331,6 @@
                     android:layout_marginLeft="115dp"
                     android:background="@drawable/dcn_back_btn_selector"
                     android:inputType="textPersonName"
-                    android:text="广州"
                     android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>

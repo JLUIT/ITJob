@@ -68,7 +68,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	private String type="";//登录类型 0  个人，1  公司
 	public static String name="";
 	public static String pass="";
-	public static String URL="http://10.151.156.140:8080/IT/";
+	public static String URL="http://10.151.213.212:8080/IT/";
+	private String result="";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -163,7 +164,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 		int screenW = dm.widthPixels;// 获取分辨率宽度
 		offset = (screenW / 3 - bmpW) / 2;// 计算偏移量
 		Matrix matrix = new Matrix();
-		matrix.postTranslate(offset, 0);
+		matrix.postTranslate(0, 0);
 		imageView.setImageMatrix(matrix);// 设置动画初始位置
 		
 	}
@@ -304,11 +305,13 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
                 if(type.equals("0"))
                 {
                 	Intent intent = new Intent(LoginActivity.this,PersonActivity.class);
+                	intent.putExtra("headPicture", result);
                 	startActivity(intent);
                 }
                 else
                 {
                 	Intent intent = new Intent(LoginActivity.this,CompanyActivity.class);
+                	intent.putExtra("headPicture", result);
                 	startActivity(intent);
                 }
     			finish();
@@ -389,8 +392,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 	        	{
 	        		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 	        		String str="";
-	 	        	str=in.readLine();
-	 	        	if(str.equals("success"))
+	 	        	while((str=in.readLine())!=null)
+	 	        		result+=str;
+	 	        	if(!(result.equals("error")&&result.equals("fail")))
 	 	        		return true;
 	        	}
 	        	else return false;

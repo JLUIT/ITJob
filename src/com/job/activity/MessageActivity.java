@@ -17,8 +17,6 @@ import org.json.JSONObject;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
@@ -49,6 +47,9 @@ public class MessageActivity extends BaseActivity {
 	private List<CompanyMsg> list = new ArrayList<CompanyMsg>();
 	private String Info;//筛选条件
 	private String result="";//筛选结果
+	private JSONArray JobInfo;
+	private String type;//filter表示筛选，alljob表示显示某公司的所有信息。
+	private String E_name;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -56,91 +57,15 @@ public class MessageActivity extends BaseActivity {
 		setContentView(R.layout.message);
 		init();
 		Intent intent=getIntent();
-		Info=intent.getStringExtra("content");//初始时显示筛选后的招聘信息列表5条；下拉刷新；上拉再加载5条；
-		Thread thread=new Thread(new selectThread());
-		thread.start();
-//		new GetDataTask().execute(); 	
+		type=intent.getStringExtra("type");
+		if(type.equals("filter"))
+			Info=intent.getStringExtra("content");
+		else E_name=intent.getStringExtra("e_Name");
+		new GetDataTask().execute(); 	
 		
 	}
-
-	Handler handler = new Handler()  
-    {  
-		public void handleMessage(Message msg)  
-        {  
-            switch(msg.what)  
-            {  
-            case 0:  
-            	Toast.makeText(getApplicationContext(), "没有符合要求的招聘信息，请重新筛选！", Toast.LENGTH_SHORT).show();
-            	finish();
-            	break;
-            case 1://成功返回筛选结果
-            	try {
-					JSONArray JobInfo=new JSONArray(result);
-					int size=JobInfo.length();
-					for(int i=0;i<size;i++)
-					{
-						final JSONObject object=JobInfo.optJSONObject(i);
-						String value=object.getString("jobName")+" "+object.getString("e_Name")+" "+object.getInt("salary")+" "
-								+object.getString("province")+" "+object.getString("city");//value是需要显示的信息
-						//接下来写职位列表代码，将value信息添加上去；并且设置列表点击监听器；
-						CompanyMsg item = new CompanyMsg();
-						item.setJob_name(object.getString("jobName"));
-						item.setSalary("￥"+object.getInt("salary"));
-						item.setSite(object.getString("province")+object.getString("city"));
-						item.setCompany_name(object.getString("e_Name"));
-						list.add(item);
-						
-					}
-					adapter = new CompanyAdapter(MessageActivity.this, list);
-					mPullRefreshListView.setAdapter(adapter);
-					adapter.notifyDataSetChanged();
-					mPullRefreshListView.onRefreshComplete();
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-            	
-            }  
-              
-        }  
-    };  
-	
-    class selectThread implements Runnable
-    {
-
-		@Override
-		public void run() {
-			String[] str=Info.split(" ");
-			JSONObject object=new JSONObject();
-			Message msg = handler.obtainMessage();
-			try {
-				object.put("province", str[0]);
-				object.put("city", str[1]);
-				object.put("salary", str[2]);
-				object.put("property", str[3]);
-				object.put("scope", str[4]);
-				object.put("acaQualification", str[5]);
-				object.put("sendTime", str[6]);
-				boolean result=SelectServer(object);
-				if(result)
-				{
-					msg.what=1;
-					handler.sendMessage(msg);
-				}
-				else
-				{
-					msg.what=0;
-					handler.sendMessage(msg);
-				}
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-    	
-    }
     
-    private boolean SelectServer(JSONObject resume)  
+    private boolean FilterServer(JSONObject resume)  
     {  
     	String path=LoginActivity.URL+"SelectJobInfo";
     	try{
@@ -180,16 +105,17 @@ public class MessageActivity extends BaseActivity {
     
 	private void init() {
 		mPullRefreshListView = (PullToRefreshListView)findViewById(R.id.pull_refresh_list);
-		// Set a listener to be invoked when the list should be refreshed.
-				mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						
-							
-					}
-				});
+				
+					mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
+						@Override
+						public void onItemClick(AdapterView<?> parent, View view,
+								int position, long id) {
+							Intent intent=new Intent();
+							intent.setClass(MessageActivity.this, JobInforAcitivity.class);
+							intent.putExtra("content", JobInfo.optJSONObject(position-1).toString());
+						    startActivity(intent); 
+						}
+					});
 				mPullRefreshListView
 				.setOnRefreshListener(new OnRefreshListener2<ListView>()
 				{
@@ -204,11 +130,8 @@ public class MessageActivity extends BaseActivity {
 
 						// Update the LastUpdatedLabel
 						refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
- 
 						// Do work to refresh the list here.  
-						Thread thread=new Thread(new selectThread());
-						thread.start();
-//						new GetDataTask().execute();
+						new GetDataTask().execute();
 					} 
 		
 					@Override
@@ -217,9 +140,7 @@ public class MessageActivity extends BaseActivity {
 					{
 						Log.e("TAG", "onPullUpToRefresh");
 						//这里写上拉加载更多的任务
-						Thread thread=new Thread(new selectThread());
-						thread.start();
-//						new GetMoreDateTask().execute();
+						new GetMoreDateTask().execute();
 					}
 				});
 				
@@ -235,20 +156,71 @@ public class MessageActivity extends BaseActivity {
 	
 	//下拉刷新时加载最新招聘信息		
 		private class GetDataTask extends AsyncTask<Void, Void, List<CompanyMsg>> {
-
-			
 			
 			@Override
 			protected List<CompanyMsg> doInBackground(Void... params) {
 				
 				list.clear();
-				//从数据库读取最新的招聘信息
-				for(int i=0; i<list_num; i++){
-					CompanyMsg item = new CompanyMsg("Android开发工程师", "阿里巴巴", "本科", 
-							"广东省广州市", "20~90人", "￥6k-12k", "国企", "2010年6月12日");
-					list.add(item);
+				if(type.equals("filter"))
+				{
+					String[] str=Info.split(" ");
+					JSONObject object=new JSONObject();
+					try {
+						object.put("province", str[0]);
+						object.put("city", str[1]);
+						object.put("salary", str[2]);
+						object.put("property", str[3]);
+						object.put("scope", str[4]);
+						object.put("acaQualification", str[5]);
+						object.put("sendTime", str[6]);
+						if(FilterServer(object))
+						{
+							JobInfo=new JSONArray(result);
+							int size=JobInfo.length();
+							for(int i=0;i<size;i++)
+							{
+								JSONObject one=JobInfo.optJSONObject(i);
+								CompanyMsg item = new CompanyMsg();
+								item.setJob_name(one.getString("jobName"));
+								item.setSalary("￥"+one.getInt("salary"));
+								item.setSite(one.getString("province")+one.getString("city"));
+								item.setCompany_name(one.getString("e_Name"));
+								list.add(item);
+								
+							}
+							
+						}
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
-				
+				else
+				{
+					JSONObject object=new JSONObject();
+					try {
+						object.put("e_Name", E_name);
+						if(SelectServer(object))
+						{
+							JobInfo=new JSONArray(result);
+							int size=JobInfo.length();
+							for(int i=0;i<size;i++)
+							{
+								JSONObject one=JobInfo.optJSONObject(i);
+								CompanyMsg item = new CompanyMsg();
+								item.setJob_name(one.getString("jobName"));
+								item.setSalary("￥"+one.getInt("salary"));
+								item.setSite(one.getString("province")+one.getString("city"));
+								item.setCompany_name(one.getString("e_Name"));
+								list.add(item);
+								
+							}
+						}
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				return list;
 			}
 
@@ -256,6 +228,15 @@ public class MessageActivity extends BaseActivity {
 			protected void onPostExecute(List<CompanyMsg> result) {
 				  
 				adapter = new CompanyAdapter(MessageActivity.this, result);
+				mPullRefreshListView.setAdapter(adapter);
+				adapter.notifyDataSetChanged();
+				mPullRefreshListView.onRefreshComplete();
+				if(result.size()==0)
+				{
+					Toast.makeText(getApplicationContext(), "没有符合要求的招聘信息，请重新筛选！", Toast.LENGTH_SHORT).show();
+	            	finish();
+				}
+				adapter = new CompanyAdapter(MessageActivity.this, list);
 				mPullRefreshListView.setAdapter(adapter);
 				adapter.notifyDataSetChanged();
 				mPullRefreshListView.onRefreshComplete();
@@ -267,18 +248,10 @@ public class MessageActivity extends BaseActivity {
 
 		//加载更多，每上拉一次加载十条数据 
 		private class GetMoreDateTask extends AsyncTask<Void, Void, List<CompanyMsg>>{
-			
-			
 			@Override
 			protected List<CompanyMsg> doInBackground(Void... params) {
 				
 				//数据库读取额外的十条数据
-				for(int i=0; i<list_num; i++){
-					CompanyMsg item = new CompanyMsg("Android开发工程师", "阿里巴巴", "本科", 
-							"广东省广州市", "20~90人", "￥6k-12k", "国企", "2010年6月12日");
-					list.add(item);
-				}
-				
 				return list;
 			}
 			
@@ -291,4 +264,42 @@ public class MessageActivity extends BaseActivity {
 			
 			
 		}
+		
+		 private boolean SelectServer(JSONObject resume)  
+		    {  
+		    	String path=LoginActivity.URL+"SelectAllJobOfCmp";
+		    	try{
+		    		URL url=new URL(path);
+		    		String content = String.valueOf(resume);
+		        	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		        	conn.setConnectTimeout(5000);
+		        	conn.setDoOutput(true);
+		        	conn.setRequestMethod("POST");
+		        	conn.setRequestProperty("User-Agent", "Fiddler");
+		        	conn.setRequestProperty("Content-Type", "application/json");
+		        	OutputStream os = conn.getOutputStream();
+		        	os.write(content.getBytes());
+		        	os.close();
+		        	int code = conn.getResponseCode();
+		        	if(code == 200)
+		        	{
+		        		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		        		String str="";
+		        		while((str=in.readLine())!=null)
+		 	        		result+=str;
+		 	        	in.close();
+		        		if(result.equals("null"))
+		        			return false;
+		        		else return true;
+		        	}
+		        	else return false;
+		    	}catch (MalformedURLException e) {  
+		            // TODO Auto-generated catch block  
+		            e.printStackTrace();  
+		        } catch (IOException e) {  
+		            // TODO Auto-generated catch block  
+		            e.printStackTrace();  
+		        }  
+		        return false;
+		    }
 }
